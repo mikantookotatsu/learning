@@ -1,0 +1,102 @@
+<!--
+学習メモ
+リンクテキストはリンク先の内容を示す意味のあるテキストとする
+
+target属性：新しいタブで開く
+rel="noopener noreferrer": セキュリティ対策として必須
+aria-label: スクリーンリーダー用の説明
+<a href="https://www.example.com" target="_blank" rel="noopener noreferrer" aria-label="Example.com（新しいタブで開きます）">
+    外部リンク
+</a>
+
+説明付き
+<a href="download.html" title="PDFファイル（2MB）をダウンロードします">資料ダウンロード</a>
+
+その他パターン
+<a href="mailto:contact@example.com">メールを送る</a>
+<a href="tel:+81-90-1234-5678">電話をかける</a>
+<a href="document.pdf" download="会社資料.pdf">PDF資料ダウンロード</a>
+
+aria-label titleの使い分け
+補助説明：title
+aria-label：アクセシビリティの観点(音声読み上げ)
+                              title aria-label
+ファイルダウンロード            ✅      ✅  ファイル情報 + 動作説明
+外部リンク（target="_blank"）   ❌      ✅  動作説明のみ必要
+アイコンのみのリンク            ❌      ✅  内容説明が必須
+明確なリンクテキスト            ❌      ❌  追加説明不要
+省略形のリンクテキスト          ✅      ❌  補足説明のみ
+-->
+
+<!--
+以下の要件を満たすHTMLファイルを作成してください：
+
+サイト構造を想定したリンク集ページを作成
+
+同じディレクトリの「about.html」へのリンク
+サブディレクトリ「products」内の「list.html」へのリンク
+親ディレクトリの「index.html」へのリンク
+
+
+外部リンクを3つ以上含める（適切な属性付きで）
+ページ内アンカーリンクを2つ以上作成
+メールリンクと電話リンクを1つずつ追加
+全てのリンクに適切なリンクテキストを設定
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サイトマップ</title>
+</head>
+
+<body>
+    <h1>サイトマップ</h1>
+    <h2>メニュー</h2>
+    <a href="about.html" title="このサイトについての説明を開きます">
+        このサイトについて
+    </a>
+    <br>
+
+    <a href="products/list.html" title="製品一覧ページを開きます">
+        製品一覧
+    </a>
+    <br>
+
+    <a href="../index.html" title="トップページに戻ります">
+        トップページ
+    </a>
+    <br>
+
+    <h2 id="links">リンク集</h2>
+    <a href="https://www.example.com" target="_blank" rel="noopener noreferrer" aria-label="Example.comのサイトを新しいタブで開く">
+        外部リンクA
+    </a>
+    <br>
+
+    <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" aria-label="google.comのサイトを新しいタブで開く">
+        Google
+    </a>
+    <br>
+    <a href="https://www.yahoo.co.jp" target="_blank" rel="noopener noreferrer" aria-label="Yahoo.co.jpのサイトを新しいタブで開く">
+        Yahoo!!
+    </a>
+
+    <h2 id="contact">連絡先</h2>
+    <a href="mailto:contact@example.com" aria-label="contact@example.comにメールを送信">メール（contact@example.com）</a>
+    <br>
+    <a href="tel:+81-90-1234-5678" aria-label="090-1234-5678に電話をかける">電話（090-1234-5678）</a>
+    <br>
+
+    <h2>アンカーリンクの確認</h2>
+    <a href="#links">リンク集へ</a>
+    <br>
+    <a href="#contact">連絡先へ</a>
+    <br>
+
+</body>
+
+</html>
