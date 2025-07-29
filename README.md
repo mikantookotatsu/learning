@@ -13,3 +13,6 @@ I am learning with Claude as my teacher.
 3. day03
   - Emphasis Tag (`<strong>, <em>, <b>, <i>`)
   - Link Tag (`<a>`)
+
+4. day04
+  - List Tag (`<ul>, <ol>, <li>`)

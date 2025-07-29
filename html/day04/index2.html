@@ -1,0 +1,58 @@
+<!--
+学習メモ
+<ol></ol> 順序ありリスト Ordered List
+<li></li> List Item 順序なしと同じ
+
+type ("1","A","a","I","i")
+start 開始番号
+CSSでの制御がより柔軟らしい。
+-->
+
+<!--
+Web技術を学習する計画を順序ありリストで作成してください。以下の要件を満たしてください：
+
+メインの学習項目を5つ程度、順序ありリストで作成
+そのうち2つの項目については、サブ項目を入れ子リストで3つずつ追加
+サブ項目には異なるtype属性（アルファベットなど）を使用
+適切な見出し（h2タグ）を付ける
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web技術学習計画</title>
+</head>
+
+<body>
+    <h1>Web技術学習計画</h1>
+    <h2>メインの学習項目</h2>
+    <ol>
+        <li>HTML学習
+            <ol type="a">
+                <li>HTMLとは</li>
+                <li>タグ
+                    <ol type="i">
+                        <li>hタグ</li>
+                        <li>pタグ</li>
+                    </ol>
+                </li>
+                <li>リンク</li>
+            </ol>
+        </li>
+        <li>CSS学習</li>
+        <li>JavaScript学習</li>
+        <li>フレームワーク学習
+            <ol type="a">
+                <li>Vue.js</li>
+                <li>React.js</li>
+                <li>Angular.js </li>
+            </ol>
+        </li>
+        <li>データベース学習</li>
+    </ol>
+</body>
+
+</html>
