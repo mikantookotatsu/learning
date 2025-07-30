@@ -1,0 +1,85 @@
+<!-- 
+学習メモ
+thead, tbody, tfoot  スクリーンリーダーが票の構造を正確に読み取れる(アクセシビリティ)
+thead テーブルのヘッダ
+tbody テーブル本体データ
+tfoot テーブルのフッター情報(合計など)
+
+colspan="数字" 列の結合(横方向)
+rowspan="数字" 行の結合(縦方向)
+
+テーブルは行ごとで、各行のセルを一致させる
+-->
+
+<!--
+以下の要件を満たすHTMLテーブルを作成してください：
+課題：「会社の部門別従業員数テーブル」
+要件：
+
+ヘッダーには「部門」「正社員」「契約社員」「合計」の列を作成
+本体には以下のデータを入力：
+
+営業部：正社員15名、契約社員3名
+開発部：正社員20名、契約社員5名
+総務部：正社員8名、契約社員2名
+
+フッターには各列の合計を表示
+必ず thead, tbody, tfoot を使用して構造化すること
+適切に th と td を使い分けること
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会社の部門別従業員数</title>
+</head>
+
+<body>
+    <h1>会社の部門別従業員数</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th rowspan="2">部門</th>
+                <th colspan="2">従業員数</th>
+                <th rowspan="2">合計</th>
+            </tr>
+            <tr>
+                <th>正社員</th>
+                <th>契約社員</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>営業部</td>
+                <td>15名</td>
+                <td>3名</td>
+                <td>18名</td>
+            </tr>
+            <tr>
+                <td>開発部</td>
+                <td>20名</td>
+                <td>5名</td>
+                <td>25名</td>
+            </tr>
+            <tr>
+                <td>総務部</td>
+                <td>8名</td>
+                <td>2名</td>
+                <td>10名</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>総計</th>
+                <td>43名</td>
+                <td>10名</td>
+                <td>53名</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>

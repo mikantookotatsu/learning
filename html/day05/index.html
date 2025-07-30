@@ -1,0 +1,43 @@
+<!--
+学習メモ
+imgタグは終了タグが不要
+<img src="cat.jpg" alt="白い猫が窓辺で眠っている写真">
+alt はスクリーンリーダが読み上げる。重要。装飾画像は空のalt=""を指定。
+width,heigth → CSSで制御
+loading="lazy" or "eager"  lazyは画面表示直前に読み込み(パフォーマンス向上)
+-->
+
+<!--
+以下の要件を満たすHTMLファイルを作成してください：
+要件:
+
+3つの異なる画像を表示する
+1つ目：メイン画像（即座に読み込み、サイズ指定あり）
+2つ目：説明図（遅延読み込み設定）
+3つ目：装飾的な画像（適切なalt属性設定）
+各画像に適切で具体的なalt属性を設定
+適切なHTML5構造を使用
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画像表示練習</title>
+</head>
+
+<body>
+    <h1>画像表示練習</h1>
+    <h2>メイン画像</h2>
+    <img src="imgs/my-pretty-dog.jpg" alt="私が飼っているかわいい犬(ボーダーコリー)の写真" width="600" height="400" loading="eager">
+
+    <h2>説明図</h2>
+    <img src="imgs/description.jpg" alt="ホームページの説明図" loading="lazy">
+
+    <h2>装飾画像</h2>
+    <img src="imgs/ornament.jpg" alt="">
+</body>
+
+</html>

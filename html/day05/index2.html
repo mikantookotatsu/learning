@@ -1,0 +1,60 @@
+<!-- 
+学習メモ
+<table></table> テーブル全体のコンテナ
+<tr></tr> テーブル行 table row
+<th></th> テーブルヘッダ table header
+<td></td> データセル table data
+
+テーブルは行ごとで、各行のセルを一致させる
+-->
+
+<!--
+以下のデータをテーブル形式で表示してください：
+
+書籍名：「プログラミング入門」、「Web開発の基礎」、「データベース設計」
+著者：「山田一郎」、「田中二郎」、「佐藤三郎」
+出版年：「2023年」、「2022年」、「2024年」
+貸出状況：「貸出中」、「利用可能」、「貸出中」
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>図書館蔵書システム</title>
+</head>
+
+<body>
+    <h1>図書館蔵書システム</h1>
+    <h2>書籍一覧</h2>
+    <table>
+        <tr>
+            <th>書籍名</th>
+            <th>著者</th>
+            <th>出版年</th>
+            <th>貸出状況</th>
+        </tr>
+        <tr>
+            <td>プログラミング入門</td>
+            <td>山田一郎</td>
+            <td>2023年</td>
+            <td>貸出中</td>
+        </tr>
+        <tr>
+            <td>Web開発の基礎</td>
+            <td>田中二郎</td>
+            <td>2022年</td>
+            <td>利用可能</td>
+        </tr>
+        <tr>
+            <td>データベース設計</td>
+            <td>佐藤三郎</td>
+            <td>2024年</td>
+            <td>貸出中</td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -16,3 +16,9 @@ I am learning with Claude as my teacher.
 
 4. day04
   - List Tag (`<ul>, <ol>, <li>`)
+
+5. day05
+  - Img Tag
+  - Table Tag （`<table>, <tr>, <td>, <th>`,`<thead>,<tbody>,<tfoot>,<colspan>,<rowspan>`）
+
+
