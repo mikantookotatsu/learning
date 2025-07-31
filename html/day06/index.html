@@ -1,0 +1,79 @@
+<!--
+学習メモ
+
+セマンティックHTML … 意味的なHTML 見た目でなく意味や役割に基づいてマークアップする手法
+HTML5から
+アクセシビリティ SEO効果など
+
+<header></header> ページやセクションの導入部分。ナビゲーション、ロゴ、見出し、検索フォームなど ネストOK
+<main></main> ページの主要コンテンツ。1ページに1つ！ナビゲーション、サイドバー、フッターなど含まない
+<footer></footer> ページやセクションの補足情報。著作権情報、連絡先、関連リンクなどを含む ネストOK
+-->
+
+<!--
+以下の要件に従って、簡単な会社のWebページの基本構造を作成してください：
+要件：
+
+会社名「Tech Solutions」をサイトタイトルとして配置
+ナビゲーションメニュー（ホーム、サービス、会社概要、お問い合わせ）を含む
+メインコンテンツエリアに会社の紹介文を2段落程度で記述
+フッターに著作権表示と住所を含める
+適切なセマンティック要素（<header>, <main>, <footer>, <nav>）を使用する
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Solutions</title>
+</head>
+
+<body>
+    <header>
+        <h1>Tech Solutions</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">ホーム</a></li>
+                <li><a href="#service">サービス</a></li>
+                <li><a href="#about">会社概要</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2 id="home">ホーム</h2>
+        <p>Tech Solutions は 私が学習のために作った本当にあったら楽しい会社です！</p>
+        <p>毎日うきうきわくわく暮らすことを目的としています！</p>
+
+        <h2 id="service">サービス</h2>
+        <p>一緒に笑ったり泣いたり、気が付いたらあなたに寄り添います！</p>
+
+        <h2 id="about">会社概要</h2>
+        <p>実は実在しない会社です。所在地は作者の脳内</p>
+
+        <h2 id="contact">お問い合わせ</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>住所</th>
+                    <th>電話番号</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>私の脳内横1丁目2-3</td>
+                    <td>000-111-222-333</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Tech Solutions. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

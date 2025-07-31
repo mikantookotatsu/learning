@@ -1,0 +1,136 @@
+<!--
+学習メモ
+nav 主要なナビゲーションに使用
+ul ol で構造化するのが一般的
+
+section テーマ的にグループ化されたコンテンツを表す
+各sectionは見出しで始める。独立したテーマを持つコンテンツグループに使用
+単純にスタイリング目的でdivの代わりに使うのはNG
+
+article  …記事 独立して意味が通るコンテンツ headar と footer を含むことが多い
+RSSフィードの1つの項目として配信できるようなコンテンツ
+-->
+
+<!--
+以下の要件で「技術ブログサイトの構造」を作成してください：
+要件：
+
+サイトのメインナビゲーション（ホーム、記事一覧、著者紹介、お問い合わせ）
+2つのブログ記事（それぞれが独立したコンテンツ）
+各記事には「概要」「詳細」「まとめ」の3つのセクション
+適切な見出しレベル（h1〜h3）を使用
+各記事にはheaderとfooterを含める
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>私の技術ブログ</title>
+</head>
+
+<body>
+    <header>
+        <h1>私の技術ブログ</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">ホーム</a></li>
+                <li><a href="#blog">記事一覧</a></li>
+                <li><a href="#about">著者紹介</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h2>ホーム</h2>
+            <p>ここは課題用の技術ブログサイトです</p>
+        </section>
+
+        <section id="blog">
+            <h2>記事一覧</h2>
+
+            <article>
+                <header>
+                    <h3>最近あった失敗談</h3>
+                    <p>2025/07/31</p>
+                    <img src="imgs/blog_02.jpg" alt="男性が頭を抱えている写真" loading="lazy">
+                </header>
+
+                <section>
+                    <h4>概要</h4>
+                    <p>さいきんの失敗話の概要</p>
+                </section>
+
+                <section>
+                    <h4>詳細</h4>
+                    <p>
+                        こんな失敗をしてしまいました。。。<br>
+                        という内容をつらつらと記載
+                    </p>
+                </section>
+
+                <section>
+                    <h4>まとめ</h4>
+                    <p>失敗しても何とかなるよーというまとめのことを書く</p>
+                </section>
+
+                <footer>
+                    <p>テーマ:失敗談、小話</p>
+                </footer>
+            </article>
+
+            <article>
+                <header>
+                    <h3>最近あった成功談</h3>
+                    <p>2025/07/30</p>
+                    <img src="imgs/blog_01.jpg" alt="男性が万歳している写真" loading="lazy">
+                </header>
+
+                <section>
+                    <h4>概要</h4>
+                    <p>さいきんの成功談の概要</p>
+                </section>
+
+                <section>
+                    <h4>詳細</h4>
+                    <p>
+                        こんな成功をしてしまいました。。。<br>
+                        という内容をつらつらと記載
+                    </p>
+                </section>
+
+                <section>
+                    <h4>まとめ</h4>
+                    <p>
+                        成功しても気を引き締めよとのまとめのことを書く
+                    </p>
+                </section>
+
+                <footer>
+                    <p>テーマ:成功談、小話</p>
+                </footer>
+            </article>
+        </section>
+
+
+        <section id="about">
+            <h2>著者紹介</h2>
+            <p>kotatsutoomikanです！みかんとこたつをこよなく愛するエンジニア!?です</p>
+        </section>
+
+        <section id="contact">
+            <h2>お問い合わせ</h2>
+            <p>Coming Sooon!</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 KotatsuTooMikan. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

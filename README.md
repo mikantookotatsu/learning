@@ -21,4 +21,6 @@ I am learning with Claude as my teacher.
   - Img Tag
   - Table Tag （`<table>, <tr>, <td>, <th>`,`<thead>,<tbody>,<tfoot>,<colspan>,<rowspan>`）
 
-
+6. day06
+  - Semantic HTML (`<header>, <main>, <footer>`)
+  - Semantic HTML (`<nav>, <section>, <article>`)
