@@ -24,3 +24,7 @@ I am learning with Claude as my teacher.
 6. day06
   - Semantic HTML (`<header>, <main>, <footer>`)
   - Semantic HTML (`<nav>, <section>, <article>`)
+
+7. day07
+  - Form (`<form>, <input>, <label>` )
+

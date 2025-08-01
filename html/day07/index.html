@@ -1,0 +1,76 @@
+<!--
+学習メモ
+
+form タグ
+action="/submit"  フォームデータの送信先URLを指定
+method="post" データ送信方法を指定
+        post データをリクエストボディに含めて送信
+        get データをURLパラメータに含めて送信
+            →データがURLに表示されるため機密情報には不適切。データ量に制限あり
+
+form内の要素
+- label 入力フィールドの説明
+  - for 対応するinputのidを指定  label for="name"
+- input
+  - type 入力データの種類  input type="text" / "email" など
+  - id labelとの関連
+  - name サーバーに送信されるキー
+  - required 必須入力
+ - button type="submit" 送信ボタン
+-->
+
+<!--
+今日の課題
+以下の要件を満たす「会員登録フォーム」を作成してください：
+要件：
+
+ユーザー名（テキスト入力、必須）
+パスワード（パスワード入力、必須）
+パスワード確認（パスワード入力、必須）
+登録ボタン
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会員登録フォーム</title>
+</head>
+
+<body>
+    <header>
+        <h1>会員登録フォーム</h1>
+    </header>
+    <main>
+        <h2>会員情報入力</h2>
+        <p>会員情報を入力してください</p>
+
+        <!-- 入力フォーム -->
+        <form action="/register" method="post">
+            <label for="name">ユーザー名</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <br>
+
+            <label for="password">パスワード</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <br>
+
+            <label for="passwordConfirm">パスワード確認</label>
+            <input type="password" id="passwordConfirm" name="passwordConfirm" required>
+            <br>
+            <br>
+
+            <button type="submit">登録</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MikanTooKotatsu All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

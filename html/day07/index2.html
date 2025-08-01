@@ -1,0 +1,110 @@
+<!--
+学習メモ
+
+input type 色々
+  - type="text" 一行のテキスト
+  - type="password" 入力内容が隠される
+  - type="email" メールアドレス形式(スマホでは@が出るキーパッド)
+  - type="number" 数値入力
+  - type="date" 日付カレンダー
+  - type="checkbokx" チェックボックス checked で初期選択可 valueでサーバーに送られる値
+  - type="radio" ラジオボタン valueでサーバーに送られる値
+
+  - placeholder="xxxx" 薄く入力欄に出るヘルプメッセージ
+
+label をすべて設定すること(アクセシビリティの観点)
+-->
+
+<!--
+課題
+以下の要件を満たす簡単な会員登録フォームを作成してください：
+要件:
+
+氏名（テキスト入力）
+メールアドレス（メール入力）
+パスワード（パスワード入力）
+生年月日（日付入力）
+趣味（チェックボックス、複数選択可能：読書、映画、音楽、スポーツから選択）
+性別（ラジオボタン） 
+利用規約への同意（チェックボックス）
+送信ボタン
+
+注意点:
+
+全ての入力項目に適切なlabelを設置すること
+for属性とid属性を正しく関連付けること
+各input要素に適切なname属性を設定すること
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会員登録フォーム2</title>
+</head>
+
+<body>
+    <header>
+        <h1>会員登録フォーム2</h1>
+    </header>
+    <main>
+        <h2>会員情報入力</h2>
+        <p>会員情報を入力してください</p>
+
+        <!-- 入力フォーム -->
+        <form action="/submit" method="post">
+            <label for="name">氏名：</label>
+            <input type="text" id="name" name="name" placeholder="氏名を入力" required>
+            <br><br>
+
+            <label for="email">メールアドレス：</label>
+            <input type="email" id="email" name="email" placeholder="example@email.com" required>
+            <br><br>
+
+            <label for="password">パスワード：</label>
+            <input type="password" id="password" name="password" placeholder="パスワード入力" required>
+            <br><br>
+
+            <label for="birthday">生年月日：</label>
+            <input type="date" id="birthday" name="birthday" required>
+            <br><br>
+
+            <p>趣味：</p>
+            <input type="checkbox" id="reading" name="hobbies" value="reading">
+            <label for="book">読書</label>
+            <input type="checkbox" id="movie" name="hobbies" value="movie">
+            <label for="movie">映画</label>
+            <input type="checkbox" id="music" name="hobbies" value="music">
+            <label for="music">音楽</label>
+            <input type="checkbox" id="sports" name="hobbies" value="sports">
+            <label for="sports">スポーツ</label>
+            <br><br>
+
+            <p>性別：</p>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">男性</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">女性</label>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">その他</label>
+            <br><br>
+
+            <input type="checkbox" id="agreement" name="agreement" value="agreed" required>
+            <label for="agreement">
+                <a href="agreement.html" target="_blank" rel="noopener noreferrer"
+                    aria-label="利用規約を新しいタブで開く">利用規約</a>への同意
+            </label>
+            <br><br>
+
+            <button type="submit">送信</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MikanTooKotatsu All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
