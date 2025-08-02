@@ -1,0 +1,61 @@
+<!--
+学習メモ
+<textarea></textarea> 複数行入力可能なフォーム ※自己完結タグにはできない
+コメント入力やメッセージ欄
+  rows="xx" 表示行数
+  cols="xx" 表示文字数
+  maxlength="xx" 最大文字数
+  readonly 読み取り専用 → フォーム送信時にデータが送られる
+  disabled 無効化 → フォーム送信時にデータが送られない
+
+  aria-describedby="xxxxx" 入力欄に関連する説明文を伝える 複数のIDをスペース区切りで指定 (アクセシビリティ)
+  role="aleart" aria-live="polite" エラーメッセージが動的に表示される際にスクリーンリーダーに通知、polite(ポライト=丁寧) は 適切なタイミングで通知
+-->
+
+<!--
+課題
+以下の要件を満たすお問い合わせフォームの一部を作成してください：
+要件：
+
+「お客様の声」というラベルを持つテキストエリアを作成
+5行×60文字程度の表示サイズに設定
+最大2000文字の入力制限を設け
+必須入力項目として設定
+適切なプレースホルダーテキストを設定
+アクセシビリティを考慮した説明文を追加
+文字数カウント表示用のdiv要素も準備（JavaScriptは不要）
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせフォーム</title>
+</head>
+
+<body>
+    <h1>お問い合わせフォーム</h1>
+
+    <p>お客様の声を入力してください</p>
+
+    <!-- 入力フォーム -->
+    <form action="/submit" method="post">
+        <label for="voice">お客様の声：</label><br>
+        <div id="voice-help">
+            お客様の貴重なご意見をお聞かせください。
+        </div>
+        <textarea id="voice" name="voice" rows="5" cols="60" maxlength="2000" placeholder="お客様の声をお聞かせください(最大2000文字)"
+            aria-describedby="voice-help char-count" required></textarea>
+        <br>
+        <div id="char-count">文字数：0 / 2000文字</div>
+        <button type="submit">送信</button>
+    </form>
+
+    <footer>
+        <p>&copy; 2025 MikanTooKotatsu All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

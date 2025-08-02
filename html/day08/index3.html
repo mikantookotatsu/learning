@@ -1,0 +1,133 @@
+<!--
+学習メモ
+
+<form>
+    <fieldseet>
+        <legend>グループの説明</legend>
+        // 各種フォーム
+    </fieldset>
+</form>
+アクセシビリティ的にも重要
+関連のある要素をグループ化する
+fieldsetは入れ子にもできる
+-->
+
+<!--
+課題
+課題：アンケートフォームの作成
+以下の要件を満たすアンケートフォームを作成してください：
+
+個人情報グループ
+氏名（テキスト入力・必須）
+年代（ラジオボタン：10代、20代、30代、40代、50代以上・必須）
+
+
+満足度評価グループ
+サービス満足度（ラジオボタン：非常に満足、満足、普通、不満、非常に不満・必須）
+推奨度（1-10のセレクトボックス・必須）
+
+
+追加情報グループ
+改善提案（テキストエリア・任意）
+今後の連絡希望（チェックボックス・任意）
+
+適切な<fieldset>と<legend>を使用し、アクセシビリティを考慮したフォームを作成してください。
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アンケートフォーム</title>
+</head>
+
+<body>
+    <header>
+        <h1>アンケートフォーム</h1>
+    </header>
+
+    <main>
+        <form action="/submit" method="post">
+            <!-- 個人情報入力 -->
+            <fieldset>
+                <legend>個人情報</legend>
+                <label for="name">氏名（必須）：</label>
+                <input type="text" id="name" name="name" placeholder="氏名を入力" required>
+
+                <fieldset>
+                    <legend>年代：</legend>
+                    <input type="radio" id="10age" name="age" value="10s" required>
+                    <label for="10age">10代</label>
+                    <input type="radio" id="20age" name="age" value="20s" required>
+                    <label for="20age">20代</label>
+                    <input type="radio" id="30age" name="age" value="30s" required>
+                    <label for="30age">30代</label>
+                    <input type="radio" id="40age" name="age" value="40s" required>
+                    <label for="40age">40代</label>
+                    <input type="radio" id="50age" name="age" value="50s" required>
+                    <label for="50age">50代以上</label>
+                </fieldset>
+            </fieldset>
+
+            <br>
+
+            <!-- 満足度評価入力 -->
+            <fieldset>
+                <legend>満足度評価</legend>
+                <fieldset>
+                    <legend>サービス満足度（必須）：</legend>
+                    <input type="radio" id="very-satisfied" name="satisfaction" value="very-satisfied" required>
+                    <label for="very-satisfied">非常に満足</label>
+                    <input type="radio" id="satisfied" name="satisfaction" value="satisfied" required>
+                    <label for="satisfied">満足</label>
+                    <input type="radio" id="usually" name="satisfaction" value="usually" required>
+                    <label for="usually">普通</label>
+                    <input type="radio" id="complaint" name="satisfaction" value="complaint" required>
+                    <label for="complaint">不満</label>
+                    <input type="radio" id="very-complaint" name="satisfaction" value="very-complaint" required>
+                    <label for="very-complaint">非常に不満</label>
+                </fieldset>
+
+                <label for="recommendation">推奨度（必須）：</label>
+                <select id="recommendation" name="recommendation" required>
+                    <option value="">選択してください</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </fieldset>
+
+            <!-- その他追加情報 -->
+            <fieldset>
+                <legend>追加情報</legend>
+                <label for="improvement">改善提案：</label>
+                <div id="improvement-help">
+                    改善提案がございましたらご記入ください(任意・最大2000文字)
+                </div>
+                <textarea id="improvement" name="improvement" rows="5" cols="60" maxlength="2000"
+                    placeholder="サービス改善のご提案をお聞かせください" aria-describedby="improvement-help"></textarea>
+                <br>
+
+                <input type="checkbox" id="contact-hope" name="contact-hope" value="contact-on">
+                <label for="contact-hope">今後の連絡を希望</label>
+            </fieldset>
+
+            <button type="submit">送信</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MikanTooKotatsu All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

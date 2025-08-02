@@ -28,3 +28,6 @@ I am learning with Claude as my teacher.
 7. day07
   - Form (`<form>, <input>, <label>` )
 
+8. day08
+  - Form (`<textarea>, <select>, <option>`)
+  - Group (`<fieldset>, <legend>`)
