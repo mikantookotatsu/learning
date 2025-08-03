@@ -31,3 +31,6 @@ I am learning with Claude as my teacher.
 8. day08
   - Form (`<textarea>, <select>, <option>`)
   - Group (`<fieldset>, <legend>`)
+
+9. day09
+  - Form Validation

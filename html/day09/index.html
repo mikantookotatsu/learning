@@ -1,0 +1,106 @@
+<!--
+学習メモ
+HTMLバリデーションはサーバ側でも必ず行う必要がある
+required 必須入力 selectの場合、valueが空のものが未入力扱い
+minlength/maxlength テキスト入力フィールドの文字数制限
+min/max number,date,timeの値の範囲
+pattern 正規表現で入力フォーマットを制御
+step 数値の刻み
+accept ファイル選択時にMIMEタイプで制限
+multiple ファイル選択やemail入力で複数値許可
+
+カスタムバリデーションメッセージ
+setCustomValidity()でバリデーションメッセージをカスタマイズできる
+-->
+
+<!--
+課題
+以下の要件を満たすユーザー登録フォームを作成してください：
+要件：
+
+ユーザー名：必須、3-20文字
+メールアドレス：必須、email形式
+パスワード：必須、8文字以上
+パスワード確認：必須、パスワードと一致
+年齢：必須、18歳以上
+利用規約への同意：必須チェック
+
+追加条件：
+適切なlabel要素を使用
+カスタムバリデーションでパスワード一致確認を実装
+わかりやすいエラーメッセージを表示
+-->
+
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザー登録フォーム</title>
+</head>
+
+<body>
+    <h1>ユーザー登録フォーム</h1>
+
+    <form id="customForm" action="/submit" method="post">
+        <fieldset>
+            <legend>ユーザー情報</legend>
+
+            <label for="name">ユーザー名：</label>
+            <input type="text" id="name" name="name" placeholder="ユーザー名を入力" minlength="3" maxlength="20" required>
+            <br>
+
+            <label for="email">メールアドレス：</label>
+            <input type="email" id="email" name="email" placeholder="example@email.com" required>
+            <br><br>
+
+            <label for="password">パスワード：</label>
+            <input type="password" id="password" name="password" placeholder="パスワード入力" minlength="8" required>
+            <br>
+
+            <label for="confirmPassword">パスワード確認：</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="パスワード入力" minlength="8"
+                required>
+            <br>
+
+            <label for="age">年齢(18歳以上)：</label>
+            <input type="number" id="age" name="age" min="18" required>
+            <br><br>
+
+            <input type="checkbox" id="agreement" name="agreement" value="agreed" required>
+            <label for="agreement">利用規約への同意</label>
+        </fieldset>
+
+        <button type="submit">送信</button>
+    </form>
+
+    <script>
+        // DOMContentLoadedイベントでスクリプトを実行
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('customForm');
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirmPassword');
+
+            // パスワード確認のカスタムバリデーション
+            function validatePasswordMatch() {
+                if (password.value !== confirmPassword.value) {
+                    confirmPassword.setCustomValidity('パスワードが一致しません');
+                } else {
+                    confirmPassword.setCustomValidity(''); // エラーをクリア
+                }
+            }
+
+            // パスワードフィールドの変更時にチェック
+            password.addEventListener('input', validatePasswordMatch);
+            confirmPassword.addEventListener('input', validatePasswordMatch);
+        });
+    </script>
+
+    <footer>
+        <p>&copy; 2025 MikanTooKotatsu All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
