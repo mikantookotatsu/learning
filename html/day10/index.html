@@ -1,0 +1,156 @@
+<!--
+学習メモ
+HTML5で導入 プラグインなしで音声・動画の再生が可能になった
+
+- audio
+  - controls 再生コントロールを表示
+  - autoplay 自動再生
+  - loop ループ再生
+  - muted 初期状態でミュート
+  - preload 事前読み込み
+    - none / metadata / auto  … metadeta のみ読み込みが推奨
+
+  ```
+  <audio controls>
+    <source src="sample.mp3" type="audio/mpeg"> 
+  </audio>
+  ```
+- video
+  - controls
+  - width/height 動画サイズ
+  - poster 動画読み込み前に表示する画像
+  - playsinline iOS Safariでインライン再生を有効化
+
+  ```
+  <video controls width="100%" height="auto">
+    <source src="sample.mp4" type="video/mp4">
+    <source src="sample.webm" type="video/webm">
+    お使いのブラウザは動画要素をサポートしていません。
+  </video>
+  ```
+アクセシビリティ
+字幕を提供   
+音声解説の提供
+    <video 
+        controls 
+        width="640" 
+        height="360" 
+        preload="metadata"
+        poster="company-intro-poster.jpg"
+        aria-describedby="video-description">
+        
+        // 複数形式の提供
+        <source src="company-intro.mp4" type="video/mp4">
+        <source src="company-intro.webm" type="video/webm">
+        
+        // 字幕トラック（必須）
+        <track kind="subtitles" src="subtitles-ja.vtt" srclang="ja" label="日本語字幕" default>
+        <track kind="subtitles" src="subtitles-en.vtt" srclang="en" label="English subtitles">
+        
+        // 音声解説トラック
+        <track kind="descriptions" src="audio-description-ja.vtt" srclang="ja" label="音声解説">
+        
+        // フォールバック（重要
+        <p>
+            お使いのブラウザは動画要素をサポートしていません。
+            <a href="company-intro.mp4">動画ファイルを直接ダウンロード</a>してご覧ください。
+        </p>
+    </video>
+
+    // 動画の詳細説明
+    <div id="video-description">
+        <h3>動画の内容</h3>
+        <p>この動画では以下の内容について説明しています：</p>
+        <ul>
+            <li>会社の設立背景（0:00-1:30）</li>
+            <li>主要事業の紹介（1:30-3:00）</li>
+            <li>企業理念と今後の展望（3:00-4:30）</li>
+        </ul>
+    </div>
+-->
+
+<!--
+課題
+以下の要件を满たすHTMLページを作成してください：
+要件:
+
+会社の製品紹介動画を埋め込む
+動画には適切なポスターフレームを設定
+日本語と英語の字幕トラックを用意（実際のファイルは不要、trackタグのみ）
+動画の下に内容説明を記述
+音声での製品説明も併せて提供
+古いブラウザでも適切なフォールバック表示がされる
+-->
+
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>製品紹介ページ</title>
+</head>
+
+<body>
+  <header>
+    <h1>製品紹介ページ</h1>
+  </header>
+
+  <main>
+    <h2>主力製品紹介</h2>
+    <section>
+      <h3>どこでもドア</h3>
+      <video controls width="640" height="360" preload="metadata" poster="dokodemodoa-poster.jpg"
+        aria-describedby="video-description">
+        <source src="dokodemodoa.mp4" type="video/mp4">
+        <source src="dokodemodoa.webm" type="video/webm">
+
+        <track kind="subtitles" src="dokodemodoa-subtitles-ja.vtt" srclang="ja" label="日本語字幕" default>
+        <track kind="subtitles" src="dokodemodoa-subtitles-en.vtt" srclang="en" label="English subtitles">
+
+        <track kind="descriptions" src="dokodemodoa-audio-description-ja.vtt" srclang="ja" label="音声解説">
+
+        <p>
+          お使いのブラウザは動画をサポートしていません。
+          <a href="dokodemodoa.mp4">動画ファイルを直接ダウンロード</a>してご覧ください。
+        </p>
+      </video>
+      <div id="video-description">
+        <h4>動画の内容</h4>
+        <p>この動画では以下の内容について説明しています：</p>
+        <ul>
+          <li>どこでもドアとは（0:00-1:30）</li>
+          <li>実際の使用例（1:30-3:00）</li>
+          <li>メーカー小売り価格（3:00-4:30）</li>
+        </ul>
+      </div>
+
+      <h4>音声での紹介</h4>
+      <audio controls preload="metadata" aria-describedby="audio-description">
+        <source src="dokodemodoa-audio-explanation.mp3" type="audio/mpeg">
+        <p>
+          お使いのブラウザは音声をサポートしていません。
+          <a href="dokodemodoa-audio-explanation.mp3">音声ファイルを直接ダウンロード</a>してご覧ください。
+        </p>
+      </audio>
+      <div id="audio-description">
+        <h5>音声の内容</h5>
+        <p>この音声では以下の内容について説明しています：</p>
+        <ul>
+          <li>どこでもドアとは（0:00-1:30）</li>
+          <li>実際の使用例（1:30-3:00）</li>
+          <li>メーカー小売り価格（3:00-4:30）</li>
+        </ul>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MikanTooKotatsu All rights reserved.</p>
+  </footer>
+
+</body>
+
+</html>

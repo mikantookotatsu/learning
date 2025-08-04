@@ -1,0 +1,113 @@
+<!--
+学習メモ
+iframe … 現在のページ内に別のHTMLページを読み込む
+youtubeやgoogle mapが埋め込まれているもの等...
+
+    <iframe 
+        src="https://www.example.com"
+        width="600"
+        height="300" 
+        title="セキュアなサンプルページ"   // アクセシビリティ対応で必須
+        sandbox="allow-same-origin allow-scripts"  //セキュリティ設定
+        loading="lazy">  // 遅延読み込み パフォーマンスUP
+        このコンテンツを表示するにはiframe対応ブラウザが必要です。
+    </iframe>
+    
+    // youtubeの例
+    <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" //特定機能の許可
+        allowfullscreen>  // 全画面許可
+    </iframe>
+
+    // sandbox属性
+    allow-same-origin:同一オリジンポリシーを適用
+    allow-scripts:JavaScriptを許可
+    allow-forms:フォーム送信を許可
+    allow-popups:ポップアップウィンドウの表示を許可
+    allow-top-navigation: 親ページのナビゲーションを許可
+    allow-top-navigation-by-user-activation: ユーザー操作による親ページナビゲーションのみ許可（推奨）
+    allow-camera: カメラアクセスを許可
+    allow-microphone: マイクアクセスを許可
+    allow-fullscreen: 全画面表示を許可
+    レベル1（最高セキュリティ）：sandbox=""
+    レベル2（中程度）：sandbox="allow-same-origin allow-scripts"
+    レベル3（実用的）：sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+
+-->
+
+<!--
+📝 課題
+以下の要件を満たすHTMLページを作成してください：
+要件：
+
+ページタイトルは「マイポートフォリオ」とする
+h1タグで「私のお気に入りコンテンツ」という見出しを作成
+2つのiframe要素を配置：
+
+1つ目：YouTube動画（任意の動画ID）を幅560px、高さ315pxで埋め込み
+2つ目：Googleマップ（任意の場所）を幅400px、高さ300pxで埋め込み
+
+
+各iframeには適切なtitle属性を設定
+セキュリティを考慮したsandbox属性を設定
+適切なフォールバックコンテンツを含める
+
+追加条件：
+
+すべてのiframeにloading="lazy"を設定
+アクセシビリティに配慮したマークアップにする
+-->
+
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マイポートフォリオ</title>
+</head>
+
+<body>
+    <header>
+        <h1>私のお気に入りコンテンツ</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>おすすめYouTube動画</h2>
+            <!-- 学習用なのでURLは適当です-->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/xxxxxxx" title="おすすめの動画" frameborder="0"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                sandbox="allow-same-origin allow-scripts allow-presentation" allowfullscreen>
+                お使いのブラウザはiframeに対応していません。
+                <a href="https://www.youtube.com/embed/xxxxxxx">こちらのリンク</a>からアクセスしてください。
+            </iframe>
+
+        </section>
+
+        <section>
+            <h2>おすすめ遊び場</h2>
+            <!-- 学習用なのでURLは適当です-->
+            <iframe width="400" height="300" src="https://www.google.com/maps/embed?pb=!xxxxxxx" title="おすすめの場所"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                loading="lazy" sandbox="allow-same-origin allow-scripts allow-presentation" allowfullscreen>
+                お使いのブラウザはiframeに対応していません。
+                <a href="https://www.google.com/maps/embed?pb=!xxxxxxx">こちらのリンク</a>からアクセスしてください。
+            </iframe>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MikanTooKotatsu All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
