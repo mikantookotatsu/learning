@@ -1,0 +1,74 @@
+<!--
+学習メモ
+
+div ブロック 新しい行から始まり、幅全体を占有、汎用的なコンテナ、意味を持たない（セマンティック的でない）
+  フォームの整理やレイアウト構造
+span インライン要素 テキスト内の一部を対象とする汎用コンテナ、意味を持たない
+  テキストの特定部分の強調や、複数のインライン要素をまとめる
+
+純粋なレイアウト目的でのみ使用。セマンティックタグがある場合は避ける
+
+-->
+
+<!--
+課題
+以下の要件を満たすHTMLファイルを作成してください：
+要件：
+
+「商品カタログ」というh1見出しを作成
+3つの商品情報を表示（各商品をdivでグループ化）
+各商品には以下の情報を含める：
+
+商品名（h3要素）
+価格（pタグ内で「価格：」の後の数値部分をspanで囲む）
+説明文（pタグ内で商品名をspanで囲む）
+
+最後に「お問い合わせ先：」として電話番号を表示（番号部分をspanで囲む）
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品カタログ</title>
+</head>
+
+<body>
+    <header>
+        <h1>商品カタログ</h1>
+    </header>
+
+    <main>
+        <h2>商品紹介</h2>
+        <div>
+            <h3>タケコプター</h3>
+            <img src="imgs/takekoputa.jpg" alt="タケコプターの画像" loading="lazy">
+            <p>価格：<span>￥10,000</span></p>
+            <p>商品説明：<span>タケコプター</span>は頭につけると空を自由に飛べる優れものです</p>
+        </div>
+        <div>
+            <h3>通り抜けフープ</h3>
+            <img src="imgs/torinuke.jpg" alt="通り抜けフープの画像" loading="lazy">
+            <p>価格：<span class="original-price"><s>￥5,000</s></span> → <span class="sale-price">￥3,000</span></p>
+            <p>商品説明：<span>通り抜けフープ</span>はどんな壁も通り抜けられるわっかです</p>
+        </div>
+        <div>
+            <h3>タイムマシン</h3>
+            <img src="imgs/timemachine.jpg" alt="タイムマシンの画像" loading="lazy">
+            <p>価格：<span>￥100,000,000</span></p>
+            <p>商品説明：<span>タイムマシン</span>は未来・過去自由に行き来できる乗り物です</p>
+        </div>
+
+        <h2>お問い合わせ先</h2>
+        <p>電話番号：<span>0X0-0YXZ-AAAA</span></p> <!-- 番号は適当 -->
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MikanTooKotatsu All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

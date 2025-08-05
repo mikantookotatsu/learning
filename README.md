@@ -38,3 +38,6 @@ I am learning with Claude as my teacher.
 10. day10
   - media (`<audio>,<video>`)
   - iframe
+
+11. day11
+  - div, span
