@@ -1,0 +1,144 @@
+<!--
+学習メモ
+ブロック 
+  文書構造 header main section article aside footer 
+  見出し h1 h2 ... h6
+  コンテンツ p blockquote pre
+  リスト ul ol li
+  テーブル table thead tbody tr td th
+  新しい行
+  幅全体を占有、高さと幅を指定可能
+  ほかのブロックやインライン要素を含めることができる
+
+  <header>: ページ全体の導入部
+  <main>: メインコンテンツエリア
+  <article>: 独立した記事コンテンツ
+  <section>: 記事内のテーマ別章立て
+  <aside>: サイドバー・補足情報
+  <footer>: ページ全体の結び
+
+インライン
+  強調 strong em 
+  引用 cite q
+  技術的内容 code kbd samp
+  時間 time
+  略語 abbr
+  テキストに配置
+  コンテンツ分の幅
+  高さや幅の指定はできない
+  インライン内にブロックは入れてはダメ <p><span>OK</splan><p>   <strong><p>NG</p></strong>   pはブロック、strongはインライン
+-->
+
+<!--
+要件：
+
+ニュースサイトの記事ページを作成
+以下の構造を含める：
+
+サイト全体のヘッダー（サイト名 + ナビゲーション3項目）
+メイン記事エリア
+記事のヘッダー（タイトル、投稿日時、カテゴリ）
+記事本文（2つの章に分ける、各章に見出しを付ける）
+記事内で以下のインライン要素を適切に使用：
+
+重要な語句の強調（strong）
+語調の強調（em）
+専門用語の略語表示（abbr）
+引用（q）
+
+
+サイドバー（関連記事リスト3件）
+フッター（著作権表示）
+-->
+
+<!--
+学習メモ
+
+div ブロック 新しい行から始まり、幅全体を占有、汎用的なコンテナ、意味を持たない（セマンティック的でない）
+  フォームの整理やレイアウト構造
+span インライン要素 テキスト内の一部を対象とする汎用コンテナ、意味を持たない
+  テキストの特定部分の強調や、複数のインライン要素をまとめる
+
+純粋なレイアウト目的でのみ使用。セマンティックタグがある場合は避ける
+
+-->
+
+<!--
+課題
+以下の要件を満たすHTMLファイルを作成してください：
+要件：
+
+「商品カタログ」というh1見出しを作成
+3つの商品情報を表示（各商品をdivでグループ化）
+各商品には以下の情報を含める：
+
+商品名（h3要素）
+価格（pタグ内で「価格：」の後の数値部分をspanで囲む）
+説明文（pタグ内で商品名をspanで囲む）
+
+最後に「お問い合わせ先：」として電話番号を表示（番号部分をspanで囲む）
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikan's ニュース</title>
+</head>
+
+<body>
+    <header>
+        <h1>Mikan's ニュース</h1>
+        <nav>
+            <ul>
+                <li><a href="#blog-1">最新記事</a></li>
+                <li><a href="#about">このサイトについて</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article id="blog-1">
+            <header>
+                <h2>ニュースサンプル</h2>
+                <p>
+                    カテゴリ：<span>サンプル</span>
+                    寄稿日：<time datetime="2025-07-31">2025年7月31日</time><br>
+                    執筆者：<cite>mikan too kotatsu</cite>
+                </p>
+            </header>
+            <section>
+                <h3>サンプルの見出し1</h3>
+                <p>
+                    ここに内容を書きますが、今はまだできていません。<strong>Comming Soon!!</strong>
+                </p>
+            </section>
+            <section>
+                <h3>サンプルの見出し2</h3>
+                <p>
+                    この記事は<abbr title="markdown">Md</abbr>で書かれ<em>とても面白く有意義になる</em>はずです。
+                    引用例は<q>ここに引用</q>です。
+                </p>
+            </section>
+        </article>
+
+        <aside>
+            <h3>関連記事</h3>
+            <ul>
+                <li><a href="#">サンプル関連記事1</a></li>
+                <li><a href="#">サンプル関連記事2</a></li>
+                <li><a href="#">サンプル関連記事3</a></li>
+            </ul>
+        </aside>
+    </main>
+
+    <footer>
+        <p><small>&copy; 2025 MikanTooKotatsu All rights reserved.</small></p>
+    </footer>
+
+</body>
+
+</html>

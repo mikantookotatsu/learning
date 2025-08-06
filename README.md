@@ -41,3 +41,6 @@ I am learning with Claude as my teacher.
 
 11. day11
   - div, span
+
+13. day12
+  - block and inline and semantic html
