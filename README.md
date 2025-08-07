@@ -44,3 +44,7 @@ I am learning with Claude as my teacher.
 
 13. day12
   - block and inline and semantic html
+
+## CSS
+1. day01
+  - CSS Basics

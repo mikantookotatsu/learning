@@ -1,0 +1,72 @@
+<!--
+学習メモ
+CSS (Cascading Style Sheets) 見た目を定義
+HTML = 構造・内容  CSS = デザイン レイアウト
+
+// 構文
+セレクタ {  // h1 とか .highlight(クラスセレクタ) とか 
+  プロパティ: 値;  // color: blue; とか セミコロンで区切る
+  プロパティ: 値;
+}
+
+CSS適用方法
+ - 外部CSS ファイル <link rel="stylesheet" href="style.css">
+ - 内部CSS <style>タグ
+-->
+
+<!--
+以下の要件を満たすHTMLファイルを作成してください：
+要件：
+
+「私のプロフィール」というh1タイトルを作成
+自己紹介の段落を2つ作成
+CSSを使って以下を実装：
+
+h1の文字色を濃い青（#003366）に設定
+段落の文字サイズを16px、行間を1.5に設定
+2つ目の段落に「special」クラスを追加し、背景色を薄いグレー（#f5f5f5）、内側の余白を10pxに設定
+
+制約：
+
+内部CSS（styleタグ）を使用すること
+HTMLの構造とCSSの装飾を明確に分離すること
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>私のプロフィール</title>
+    <style>
+        h1 {
+            color: #003366;
+        }
+
+        /* 段落 */
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* 特別な段落 */
+        .special {
+            background-color: #f5f5f5;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>私のプロフィール</h1>
+    <p>こんにちは、これは私の自己紹介です！</p>
+    <p class="special">ただいまHTML&CSS学習中です！好きな食べ物は麺類！</p>
+
+    <footer>
+        <p><small>&copy; 2025 MikanTooKotatsu All rights reserved.</small></p>
+    </footer>
+
+</body>
+
+</html>
