@@ -1,0 +1,50 @@
+<!--
+学習メモ
+color, font-size, font-family
+width, 
+
+
+rem 基準がHTML要素のfont-size ページ全体で一貫した比率を持つ
+em 基準が親要素のfont-size
+font-size: 16px; → 1.5rem (24px)
+
+hsl(色相, 彩度, 明度)  色相0~360  0:赤, 120:緑, 240:青  彩度0%グレー, 100%で鮮やか, 明度0%黒, 100%白
+hsl(0, 0%, 90%) → 彩度0%なので赤味がない、明るいグレー
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite</title>
+    <style>
+        h2 {
+            /* 敢えてhslを試してみる */
+            color: hsl(260, 50%, 50%);
+            font-size: 20px;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>私のお気に入り</h1>
+
+    <h2>私の好きな色</h2>
+    <p>
+        私の好きな色は何といっても紫！紫は冠位十二階の際にも高貴な色となっています。
+    </p>
+
+    <footer>
+        <p><small>&copy; 2025 MikanTooKotatsu All rights reserved.</small></p>
+    </footer>
+
+</body>
+
+</html>

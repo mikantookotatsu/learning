@@ -1,0 +1,16 @@
+p {
+    font-size: 14px;
+    /* アクセシビリティの観点では rem emがよい */
+    line-height: 1.4;
+}
+
+.featured {
+    background-color: #e8f4fd;
+    padding: 10px;
+}
+
+#bestseller {
+    color: #d63384;
+    font-weight: bold;
+    border: 2px solid #d63384;
+}

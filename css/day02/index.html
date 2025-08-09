@@ -1,0 +1,58 @@
+<!--
+学習メモ
+
+要素セレクタ htmlタグ名で直接指定
+p {
+}
+
+クラスセレクタ  class="..." を指定して .classname で呼び出す
+.highlight {
+  background-color:yellow;
+}
+
+IDセレクタ  id="..." を指定して #idnameで呼び出す
+
+#main-title {
+  font-size: 24px;
+}
+
+クラスセレクタが基本, IDはjavascriptの操作対象やページ内リンク用でデザインは最小限
+要素セレクタは全体ルールやリセットCSSで使用
+
+優先順 (同じ優先度は後勝ち)
+1 IDセレクタ
+2 クラスセレクタ
+3 要素セレクタ
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品カタログ</title>
+    <link rel="stylesheet" href="style.css"> <!-- 別スタイル参照 -->
+</head>
+
+<body>
+    <h1>商品カタログ</h1>
+    <p>
+        定番商品の紹介が入ります
+    </p>
+
+    <p class="featured">
+        夏特集商品の紹介が入ります
+    </p>
+
+    <p id="bestseller">
+        大人気商品の紹介が入ります
+    </p>
+
+    <footer>
+        <p><small>&copy; 2025 MikanTooKotatsu All rights reserved.</small></p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!--
+学習メモ
+
+font-family フォールバック機構で最後は汎用フォントを入れる
+// セリフ体：装飾のある書体（読み物に適している） 
+font-family: "Times New Roman", "Hiragino Mincho ProN", serif;
+
+// サンセリフ体：装飾のないシンプルな書体（画面表示に適している）
+font-family: Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+
+// 等幅フォント
+font-family: "Courier New", "Menlo", monospace;
+
+font-size
+ px 絶対単位
+ em 相対単位 親要素から
+ rem 相対単位 ルートから (推奨)
+ アクセシビリティの観点から12px未満は避ける
+ 
+font-weight フォントの太さ
+  300,400,500,700,900 を段階的に使用  数値指定推奨
+-->
+
+<!--
+以下の要求に従って、シンプルなブログ記事風のHTMLページを作成してください：
+要求仕様：
+
+メインタイトル：サンセリフ体、2rem、太字（700）
+投稿日時：等幅フォント、0.9rem、細字（300）、グレー色
+本文段落：サンセリフ体、1rem、通常太さ
+重要な文章：同じフォントで太字強調
+フォントファミリーにはフォールバックを含める
+
+制約条件：
+
+HTMLファイル1つで完結すること
+CSSは内部スタイルシート（<style>タグ内）を使用
+最低3つの段落を含むこと
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>シンプルブログ記事</title>
+    <style>
+        /* メインタイトル */
+        .main-title {
+            font-family: Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        /* 投稿日時 */
+        .post-date {
+            font-family: "Courier New", "Menlo", monospace;
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: gray;
+            margin-bottom: 30px;
+        }
+
+        /* 本文 */
+        .main-body {
+            font-family: Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+
+        /* 重要文章 */
+        .important {
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="main-title">シンプルブログ記事</h1>
+        <p class="post-date">2025年08月09日</p>
+    </header>
+    <main>
+        <p class="main-body">
+            段落１:重要な文章は<span class="important">こんな感じ</span>で強調します！
+        </p>
+        <p class="main-body">
+            段落２:正直は<strong>こんな感じ</strong>で強調してもいいですよね？
+        </p>
+        <p class="main-body">
+            段落３:サイズはremを使ったほうが大きさに一貫性が保たれるようです！
+        </p>
+    </main>
+
+    <footer>
+        <p><small>&copy; 2025 MikanTooKotatsu All rights reserved.</small></p>
+    </footer>
+
+</body>
+
+</html>

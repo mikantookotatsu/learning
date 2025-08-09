@@ -48,3 +48,9 @@ I am learning with Claude as my teacher.
 ## CSS
 1. day01
   - CSS Basics
+
+2. day02
+  - selector
+
+3. day03
+  - Text and Font(`font-family、font-size、font-weight`)

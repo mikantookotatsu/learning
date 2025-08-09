@@ -1,0 +1,48 @@
+/*
+次のHTMLに対して、外部CSSで条件通りのフォント設定をしてください
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>フォント課題</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 class="headline">今日のおすすめ</h1>
+  <p class="description">旬の果物をご紹介します。</p>
+</body>
+</html>
+
+bodyのフォントを "Helvetica Neue", Arial, sans-serif に設定
+.headline の文字サイズを基準の2倍（rem単位）、太さを700に
+.description の文字サイズを基準の1.2倍（rem単位）、太さを400に
+*/
+
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 1rem;
+    /* 基準 */
+}
+
+.headline {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.description {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+/* Googleフォント */
+/*
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+preconnect フォント配信サーバに事前接続して表示を高速化
+display=swap フォントが読み込み中でもテキストを即表示
+ウェイト（wght@400;700）を事前指定すると不要なフォントデータを省ける
+
+*/
