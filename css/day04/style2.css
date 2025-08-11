@@ -1,0 +1,72 @@
+/*
+memo
+色相の目安
+0	赤 (Red)
+30	オレンジ
+60	黄 (Yellow)
+120	緑 (Green)
+180	水色 (Cyan)
+240	青 (Blue)
+300	ピンク/紫
+360	赤 (Red)
+
+補色（コンプリメンタリー）
+Hue を 180° ずらした組み合わせ
+
+類似色（アナロガス）
+Hue を ±30° 以内で組み合わせ
+
+トライアド（3色調和）
+Hue を 120° 間隔で配置（鮮やかでバランス良い）
+
+次のHTMLに対して、外部CSSで条件通りにテキスト装飾をしてください。
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>テキスト課題</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 class="headline">旬のフルーツ</h1>
+  <p class="description">季節ごとのおすすめフルーツをご紹介します。</p>
+  <a href="#">詳細はこちら</a>
+</body>
+</html>
+
+条件
+1 .headline
+  色を落ち着いた緑（HSL形式）に
+  中央揃え
+  頭文字を大文字化（capitalize）
+
+2 .description
+  行間を1.8に
+  色を濃いグレー（HSL形式）に
+
+3. a
+  通常時は下線なし、色を青（HSL形式）
+  hover時に下線を表示
+*/
+
+.headline {
+    color: hsl(120, 30%, 40%);  /* 色相・彩度・明度 */
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.description {
+    line-height: 1.8;
+    color:hsl(0, 10%, 20%);
+}
+
+a {
+    text-decoration: none;
+    color:hsl(240, 50%, 50%);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+ 

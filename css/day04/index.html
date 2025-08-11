@@ -1,0 +1,104 @@
+<!--
+学習メモ
+- color 文字色
+  キーワード(redとか)
+  16進数(#3366cc)
+  rgb(xx, yy, zz)
+  rgba(xx, yy, zz, x.x) // 透明度
+  hsl(xx, yy%, zz%) // 色相・彩度・明度 → 推奨
+
+- text-align テキストの水平方向
+  justfy が両端揃え
+
+- line-height 行間
+  数値指定が推奨。フォントサイズの倍数 1.6など
+
+- text-decoration
+  none 装飾削除
+  overline 上線
+  underline 下線
+  line-through 取り消し線 など
+  →リンク装飾は デフォルトは下線を消して hoverで別の下線をつける
+
+- text-transform テキストの大文字小文字変換(英語,ラテン語のみ適用)
+  lowercase 小文字にする
+  uppercase 大文字にする など
+-->
+
+<!--
+課題内容：
+「オンライン書店のブックレビューページ」を作成してください。
+要件：
+
+書籍タイトル
+中央揃え
+青色（#2980b9）
+各単語の先頭を大文字に変換
+下線付き
+
+著者名
+右揃え
+グレー色（#7f8c8d）
+大文字に変換
+
+レビュー本文
+両端揃え
+行間を1.8に設定
+濃いグレー色（#2c3e50）
+
+価格情報
+元の価格：取り消し線付き、薄いグレー色（#bdc3c7）
+セール価格：赤色（#e74c3c）、大文字変換、太字
+
+
+「購入する」ボタン風のテキスト
+中央揃え
+白色の文字
+装飾線なし
+大文字変換
+
+ヒント：
+HTMLの構造を考えてから、CSSでスタイリングしましょう
+クラス名は分かりやすい名前にしてください
+各要素を.cardのような枠で囲んでレイアウトを整えてください
+
+提出形式：
+HTML部分とCSS部分を明確に分けて作成
+各プロパティになぜその値を選んだかのコメントを付けてください
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブックレビュー</title>
+    <link rel="stylesheet" href="style.css"> <!-- 別スタイル参照 -->
+</head>
+
+<body>
+    <header>
+        <h1 class="review-title">Doraemon</h1>
+        <p class="author">Fujiko.F.Fujio</p>
+    </header>
+    <main>
+        <h2>レビュー内容</h2>
+        <p class="review-main">
+            ドラえもんはいろいろな考えさせられる要素が含まれている名作です！
+            のび太の成長やドラえもんの道具の面白さなど大人でも楽しめます！
+        </p>
+
+        <h2>価格</h2>
+        <p><span class="price">500 円</span> → <span class="sale">300円</span></p>
+
+        <p class="buy-container"><a class="buy" href="#">購入する</a></p>
+    </main>
+
+    <footer>
+        <p><small>&copy; 2025 MikanTooKotatsu All rights reserved.</small></p>
+    </footer>
+
+</body>
+
+</html>

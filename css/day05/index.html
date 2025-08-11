@@ -1,0 +1,86 @@
+<!--
+background-color 背景色 パディング領域まで、色指定方法はcolorと同じ
+
+background-image 背景画像
+// 例
+.image-background {
+  width: 300px;
+  height: 200px;
+  
+  /* 背景画像を指定（URLパスで指定） */
+  background-image: url('sample-image.jpg');
+  
+  /* 背景色も同時に指定可能（画像が読み込めない場合のフォールバック） */
+  background-color: #f0f0f0;
+  
+  /* 繰り返し方法: repeat(デフォルト) | no-repeat | repeat-x | repeat-y */
+  background-repeat: no-repeat;
+
+  /* 画像サイズ: auto(デフォルト) | cover | contain | 具体的サイズ */
+  background-size: cover;
+
+  /* 画像位置: left top(デフォルト) | center | right bottom など */
+  background-position: center center;
+}
+-->
+
+<!--
+以下の仕様で要素を作成してください（HTMLとCSSで完成させる）：
+課題：カード風デザインの作成
+
+要件：
+幅300px、高さ200pxの要素を作成
+背景色は薄いグレー（#f8f9fa）
+境界線は1px solid #dee2e6
+パディングは20px
+要素内に「背景の学習完了！」というテキストを配置
+ホバー時（マウスオーバー時）に背景色が薄い青（#e3f2fd）に変化
+
+ヒント：
+:hover疑似クラスを使用してマウスオーバー効果を実装
+transitionプロパティで滑らかな色の変化を演出
+
+学習のポイント：
+CSSの状態変化（:hover）
+基本的な背景色の制御
+ボックスモデルの理解（padding、border）
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カード風デザインテスト</title>
+    <style>
+        .card {
+            width: 300px;
+            height: 200px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 20px;
+            transition: all 0.5s 0s ease;
+        }
+
+        .card:hover {
+            background-color: #e3f2fd;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>カード風デザインテスト</h1>
+    <main>
+        <p class="card">
+            背景の学習完了！
+        </p>
+    </main>
+
+    <footer>
+        <p><small>&copy; 2025 MikanTooKotatsu All rights reserved.</small></p>
+    </footer>
+
+</body>
+
+</html>

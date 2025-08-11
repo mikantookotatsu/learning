@@ -54,3 +54,12 @@ I am learning with Claude as my teacher.
 
 3. day03
   - Text and Font(`font-family、font-size、font-weight`)
+
+4. day04
+  - Text and Font(`color, text-align, line-height, text-decoration, text-transform`)
+  - Web Fonts
+
+5. day05
+  - Background and Border(`background-color, background-image`, `border, border-radius`)
+
+

@@ -1,0 +1,55 @@
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.review-title {
+    text-align: center;
+    color: #2980b9;
+    text-transform: capitalize;
+    text-decoration: underline;
+}
+
+.author {
+    text-align: right;
+    color: #7f8c8d;
+    text-transform: uppercase;
+}
+
+.review-main {
+    text-align: justify;
+    line-height: 1.8;
+    color: #2c3e50;
+}
+
+.price {
+    color: #bdc3c7;
+    text-decoration: line-through;
+}
+
+.sale {
+    color: #e74c3c;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.buy-container {
+    text-align: center;
+}
+
+.buy {
+    display:inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #0c9c0f;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+/* ホバーもつけてみる */
+.buy:hover {
+    text-decoration: underline;
+}

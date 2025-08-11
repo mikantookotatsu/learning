@@ -1,0 +1,57 @@
+<!-- 
+Google Fonts が推奨
+
+<link rel="preconnect" href="https://fonts.googleapis.com">   rel="preconnect"をつける
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+↑必要最低限のWeightのみ読み込む、display=swapの使用（フォント読み込み中もテキストを表示）
+-->
+
+<!--
+課題
+以下の要件を満たすHTMLページを作成してください：
+
+要件：
+Google Fontsから「Inter」フォント（ウェイト400と600のみ）を読み込む
+2025年のベストプラクティス（preconnect、display=swap）を適用
+h1要素にはfont-weight: 600を適用
+p要素にはfont-weight: 400を適用
+適切なフォールバック（sans-serif）を設定
+「Web開発学習中」というh1と、「HTMLとCSSの基礎を学んでいます。」というp要素を含む
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebFontテスト</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        h1 {
+            font-family: "Inter", sans-serif;
+            font-weight: 600;
+            text-align: center;
+            padding: 20px;
+            background-color: hsl(83, 87%, 44%);
+        }
+
+        p {
+            font-family: "Inter", sans-serif;
+            font-weight: 400;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Web開発学習中</h1>
+    <p>HTMLとCSSの基礎を学んでいます。</p>
+</body>
+
+</html>
