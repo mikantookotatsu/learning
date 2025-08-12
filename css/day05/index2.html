@@ -1,0 +1,111 @@
+<!--
+border: [width] [style] [color]; // 全方向
+border-top , border-right, border-bottom, border-left //各方向
+
+width で幅指定 は数値指定推奨 1px 2px 3px 4px のように上、右、下、左をまとめて指定可
+
+style
+    border-style: solid;   /* 実線（最も一般的） */
+    border-style: dashed;  /* 破線 */
+    border-style: dotted;  /* 点線 */
+    border-style: double;  /* 二重線 */
+    border-style: groove;  /* 立体的な溝 */ // 立体系は避ける傾向にある
+    border-style: ridge;   /* 立体的な山 */
+    border-style: inset;   /* 押し込まれた感じ */
+    border-style: outset;  /* 浮き出た感じ */
+    border-style: none;    /* 境界線なし */
+    border-style: hidden;  /* 非表示（tableで特別な意味） */
+
+border-radius 角を円弧で切り取る機能
+    border-radius: 10px; /* 全ての角を10pxの円弧で切り取り */
+
+/* よく使われるパターン */
+.common-patterns {
+    border-radius: 50%; /* 完全な円（正方形の場合） */
+    border-radius: 8px; /* 適度な丸み（現代的） */
+    border-radius: 4px; /* 控えめな丸み */
+
+    /* 水平半径 / 垂直半径 で楕円形の角を作成 */
+    border-radius: 20px / 10px; /* 水平20px、垂直10pxの楕円 */
+}
+
+境界線なしでbox-shadowのみ
+/* モダンなシャドウのみのデザイン */
+.shadow-only {
+    border: none;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+内側境界線（box-shadow活用）
+/* 内側に境界線効果 */
+.inner-border {
+    box-shadow: inset 0 0 0 2px #3498db;
+    border-radius: 6px;
+}
+-->
+
+<!--
+課題：プロフィールカードコンポーネントの作成
+以下の仕様でプロフィールカードを作成してください：
+要件：
+全体サイズ： 幅320px、高さ180px
+基本境界線： 1px solid #e1e8ed
+上部アクセント： 上辺のみ4px solid #1da1f2（Twitter風）
+角丸： 12px（モダンなデザイン）
+ホバー効果：
+境界線が #1da1f2 に変化
+box-shadow: 0 4px 12px rgba(29, 161, 242, 0.15) を追加
+
+内部構成：
+テキスト領域（名前と@IDを表示）
+
+transition： 0.2s ease でスムーズな変化
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロフィールカード</title>
+    <style>
+        .card {
+            width: 320px;
+            height: 180px;
+            border: 1px solid #e1e8ed;
+            border-top: 4px solid #1da1f2;
+            border-radius: 12px;
+            transition: all 0.2s 0s ease;
+        }
+
+        .card p {
+            margin: 8px 0; /* 段落間の余白調整 */
+            color: #333; /* テキストカラー */
+        }
+
+        .card:hover {
+            border-color: #1da1f2;
+            box-shadow: 0 4px 12px rgba(29, 161, 242, 0.15);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>プロフィールカード</h1>
+    <main>
+        <div class="card">
+            <p>名前(@ID)：MikanTooKotatsu (@112233) </p>
+            <p>出身地：日本</p>
+            <p>得意言語：C言語,Shell</p>
+        </div>
+    </main>
+
+    <footer>
+        <p><small>&copy; 2025 MikanTooKotatsu All rights reserved.</small></p>
+    </footer>
+
+</body>
+
+</html>

@@ -61,5 +61,6 @@ I am learning with Claude as my teacher.
 
 5. day05
   - Background and Border(`background-color, background-image`, `border, border-radius`)
+  - box-shadow
 
 

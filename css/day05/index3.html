@@ -1,0 +1,69 @@
+<!--
+box-shadow 要素に影を追加するCSS
+box-shadow: [inset] <offset-x> <offset-y> <blur-radius> <spread-radius> <color>;
+    offset-x: 水平方向のずれ（正の値で右、負の値で左）
+    offset-y: 垂直方向のずれ（正の値で下、負の値で上）
+    blur-radius: ぼかしの半径（大きいほどぼやける）
+    spread-radius: 影の拡散半径（省略可能）
+    color: 影の色   // 透明度は0.1-0.3くらい
+    inset: 内側の影（省略可能）
+
+現代的な微細な影　↓複数の影を組み合わせできる
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 
+            0 1px 2px rgba(0, 0, 0, 0.06);
+
+影のレベルがあるらしい
+Level 1: 0 1px 3px rgba(0,0,0,0.12)
+Level 2: 0 3px 6px rgba(0,0,0,0.16)
+Level 3: 0 10px 20px rgba(0,0,0,0.19)
+-->
+
+<!--
+📝 課題
+以下の要件を満たすカードコンポーネントを作成してください：
+
+幅300px、高さ200pxの白い背景のカード
+角丸を8px設定
+通常時は微細な影（現代的なデザイン）
+ホバー時により深い影に変化（:hover疑似クラス使用）
+影の変化にtransition効果を適用（0.3秒）
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>影付きカード</title>
+    <style>
+        .card {
+            width: 300px;
+            height: 200px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),  0 1px 2px rgba(0, 0, 0, 0.06);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>影付きカード</h1>
+    <main>
+        <div class="card">
+            <p>カードテスト</p>
+        </div>
+    </main>
+
+    <footer>
+        <p><small>&copy; 2025 MikanTooKotatsu All rights reserved.</small></p>
+    </footer>
+
+</body>
+
+</html>
