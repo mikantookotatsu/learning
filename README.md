@@ -1,6 +1,6 @@
 # learning
 This repository is my learning record.<br>
-I am learning with Claude as my teacher.
+I am learning with Claude(&ChatGPT) as my teacher.
 
 ## HTML
 1. day01
@@ -63,4 +63,5 @@ I am learning with Claude as my teacher.
   - Background and Border(`background-color, background-image`, `border, border-radius`)
   - box-shadow
 
-
+6. day06
+  - day01~05 Summary
