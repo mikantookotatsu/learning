@@ -65,3 +65,7 @@ I am learning with Claude(&ChatGPT) as my teacher.
 
 6. day06
   - day01~05 Summary
+
+7. day07
+  - Box Model
+  - Reset CSS

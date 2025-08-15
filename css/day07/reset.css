@@ -1,0 +1,123 @@
+/* 
+  2025年版モダンリセットCSS
+  - 実用性重視
+  - 最新のベストプラクティス採用
+  - アクセシビリティ対応
+*/
+
+/* 1. box-sizingを全要素に適用（最重要） */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. ルート要素の基本設定 */
+html {
+  /* スクロール動作を滑らかに */
+  scroll-behavior: smooth;
+  /* ユーザーがダークモードを好む場合の配慮 */
+  color-scheme: light dark;
+}
+
+/* 3. body要素の基本設定 */
+body {
+  /* デフォルトmarginを削除 */
+  margin: 0;
+  /* 読みやすい行間設定 */
+  line-height: 1.5;
+  /* フォントのアンチエイリアシング（滑らか表示） */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 4. 見出し・段落の余白統一 */
+h1, h2, h3, h4, h5, h6, p {
+  /* デフォルトmarginを削除 */
+  margin: 0;
+  /* 長いテキストの改行処理 */
+  overflow-wrap: break-word;
+}
+
+/* 5. リスト要素の調整 */
+ul, ol {
+  margin: 0;
+  padding: 0;
+  /* リストマーカーを削除したい場合 */
+  /* list-style: none; */
+}
+
+/* 6. メディア要素の最適化 */
+img,
+picture,
+video,
+canvas,
+svg {
+  /* インライン要素の下の隙間を削除 */
+  display: block;
+  /* レスポンシブ対応 */
+  max-width: 100%;
+  height: auto;
+}
+
+/* 7. フォーム要素の統一 */
+input,
+button,
+textarea,
+select {
+  /* 親要素のフォントを継承 */
+  font: inherit;
+  /* デフォルトのoutlineを削除（後でfocus対応が必要） */
+  /* outline: none; */
+}
+
+/* 8. ボタン要素の最適化 */
+button {
+  /* デフォルトスタイルを削除 */
+  border: none;
+  background: none;
+  /* クリック可能であることを示す */
+  cursor: pointer;
+}
+
+/* 9. テーブル要素の調整 */
+table {
+  /* セル間の隙間を削除 */
+  border-collapse: collapse;
+  /* 幅を100%に設定 */
+  width: 100%;
+}
+
+/* 10. アクセシビリティ対応 */
+/* アニメーションを無効化するユーザーへの配慮 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 11. フォーカス状態の基本設定 */
+/* キーボードナビゲーション用のフォーカス表示 */
+:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* 12. 選択テキストの見た目を統一 */
+::selection {
+  background-color: #007bff;
+  color: white;
+}
+
+/* 
+  使用方法：
+  このCSSファイルをプロジェクトの最初に読み込む
+  <link rel="stylesheet" href="reset.css">
+  
+  またはCSSファイルの先頭に記述する
+*/

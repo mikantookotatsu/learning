@@ -1,0 +1,83 @@
+<!--
+ボックスモデル HTML要素をボックスとして表現
+Content 
+Padding (内側余白)
+Border
+Margin (外側余白)
+
+box-sizing: content-box; width + padding + border
+box-sizing: border-box; でwidth が実際のサイズになる。 推奨
+
+/* すべての要素にborder-boxを適用 */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+-->
+
+<!--
+以下の仕様に従って、3つのボックスを横並びに配置してください：
+要件：
+各ボックスの幅を200px、高さを150pxに設定
+内側余白を15px、境界線を3px solid #007bff、外側余白を10pxに設定
+border-boxを使用して、指定した幅が実際の幅になるようにする
+背景色は#f8f9fa、テキストは中央揃え
+3つのボックスには「Box 1」「Box 2」「Box 3」のテキストを配置
+-->
+
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Sizing Preview</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        /* 共通のスタイル */
+        .demo-container {
+            display: flex;
+            gap: 40px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        body {
+            font-family: system-ui, sans-serif; /* システムフォント指定 */
+            margin: 0;
+        }
+
+        .box {
+            width: 200px;
+            height: 150px;
+            padding: 15px;
+            border: 3px solid #007bff;
+            margin: 10px;
+            background-color: #f8f9fa;
+            text-align: center;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Box Sizing Preview</h1>
+    <main>
+        <div class="demo-container">
+            <div class="box">Box1</div>
+            <div class="box">Box2</div>
+            <div class="box">Box3</div>
+        </div>
+    </main>
+
+    <footer>
+        <p><small>&copy; 2025 MikanTooKotatsu All rights reserved.</small></p>
+    </footer>
+
+</body>
+
+</html>
