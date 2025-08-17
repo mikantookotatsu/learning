@@ -1,0 +1,190 @@
+<!--
+z-index 値が大きいほど前面に表示(同じz-indexの場合、HTML上で後に書かれた要素が前面)
+  スタッキングコンテキスト 特定の条件下で作成される「z-indexの階層」。子要素のz-indexは、その親のスタッキングコンテキスト内でのみ比較
+    作成条件
+    ルート要素（html）
+    position が absolute/relative で z-index が auto 以外
+    position が fixed または sticky
+    opacity が 1 未満
+    transform、filter、perspective などが設定されている要素
+
+overflow 要素のサイズを超えたコンテンツをどう処理するかを制御
+  visible: はみ出したコンテンツも表示される（デフォルト）
+  hidden: はみ出した部分は完全に非表示になり、スクロールもできない
+  scroll: 常にスクロールバーが表示され、スクロール可能
+  auto: コンテンツがはみ出す場合のみスクロールバーが表示される
+  overflow-x/y: 横方向と縦方向を別々に制御可能
+-->
+
+<!--
+課題：「タスクボード」の作成
+要件：
+
+固定ヘッダー （z-index: 100）
+
+高さ50px、背景色は自由
+「タスクボード」というタイトルを表示
+
+3つのカラムを横並びで配置：
+「未着手」「進行中」「完了」
+各カラムは幅200px、高さ400px
+overflow-y: autoでスクロール可能
+
+
+タスクカード：
+各カラムに2-3個のタスクカードを配置
+カードサイズ: 幅180px、高さ80px
+カード右上に優先度バッジ（position: absolute）
+優先度バッジは「高」「中」「低」のいずれか
+
+
+フローティングボタン：
+右下に「+」ボタンを固定配置（position: fixed）
+z-index: 50で設定
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タスクボード</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, sans-serif; /* システムフォント指定 */
+            margin: 0;
+            background-color: #f8fafc;
+        }
+
+        .fixed-header {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 50px;
+            background-color: #bb3333;
+            color: #fff;
+            align-items: center;
+            font-weight: 700;
+            z-index: 100;
+            display: flex;
+            align-items: center; /* 垂直中央揃え */
+            padding: 0 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .main-content {
+            margin-top: 50px;
+        }
+
+        .column {
+            position: relative;     /* 基準となる要素 */
+            display: inline-block;  /* 横並びにしてサイズを指定する */
+            width: 200px;
+            height: 400px;
+            margin: 10px;
+            background-color: #fff;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+            overflow-y: auto;
+        }
+
+        .task-card {
+            position: relative;
+            display: block;
+            background-color: #ffffbb;
+            width: 180px;
+            height: 80px;
+            border-radius: 10px;
+            margin: 10px;
+            padding-left: 5px;
+            font-size: 0.8rem;
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff3333;
+            color: #fff;
+            padding: 5px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+
+        .plus-button {
+            position: fixed;  /* ブラウザの位置を基準 */
+            bottom: 20px;
+            right: 20px;
+            background-color: #3b82f6;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            z-index: 50;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="fixed-header">
+        <h1>タスクボード</h1>
+    </header>
+    <main class="main-content">
+        <div class="column">
+            <h2>未着手</h2>
+            <div class="task-card">
+                <h3>TypeScript学習</h3>
+                <div class="badge">高</div>
+            </div>
+            <div class="task-card">
+                <h3>フレームワーク学習</h3>
+                <div class="badge">中</div>
+            </div>
+            <div class="task-card">
+                <h3>DB関連</h3>
+                <div class="badge">低</div>
+            </div>
+        </div>
+
+        <div class="column">
+            <h2>進行中</h2>
+            <div class="task-card">
+                <h3>CSS学習</h3>
+                <div class="badge">高</div>
+            </div>
+            <div class="task-card">
+                <h3>Golang学習</h3>
+                <div class="badge">高</div>
+            </div>
+        </div>
+
+        <div class="column">
+            <h2>完了</h2>
+            <div class="task-card">
+                <h3>HTML学習</h3>
+                <div class="badge">高</div>
+            </div>
+            <div class="task-card">
+                <h3>仕事の進め方</h3>
+                <div class="badge">低</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p><small>&copy; 2025 MikanTooKotatsu All rights reserved.</small></p>
+    </footer>
+
+    <button class="plus-button">＋</button>
+
+</body>
+
+</html>

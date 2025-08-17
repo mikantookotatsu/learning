@@ -69,3 +69,7 @@ I am learning with Claude(&ChatGPT) as my teacher.
 7. day07
   - Box Model
   - Reset CSS
+
+8. day08
+  - display, position
+  - z-index, overflow

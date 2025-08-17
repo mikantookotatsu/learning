@@ -1,0 +1,129 @@
+<!--
+display 要素がどのように表示されるかを制御
+  : block; 要素が縦に並び、利用可能な幅いっぱいに広がる(div,p,h1などのデフォルト)
+  : inline; 要素が横に並び、内容分の幅のみ占有。(span,a,strongなど)
+  : inline-block; 横並び且つblockの幅・高さ指定可能(width,heightが有効)
+  : none; 要素を完全に非表示にする
+
+position 要素をどこに配置するかを制御
+  : static; フォルト値。通常のドキュメントフローに従って配置
+  : relative; 元々の位置を基準として相対的に移動
+  : absolute; 最も近いpositionが指定された親要素（通常はrelative）を基準として絶対位置で配置
+  : fixed; ビューポート（ブラウザ画面）を基準として固定位置で配置  ← ヘッダなどを固定する
+
+※現在はレイアウト全体はflex/gridで整え、absoluteはUIパーツ限定が推奨
+　固定ナビは position: sticky; の方がパフォーマンス良くなる場合が多い
+-->
+
+<!--
+課題：「プロフィールカード」の作成
+要件：
+
+200px × 300pxのプロフィールカード（position: relative）
+カード内に以下を配置：
+
+上部に100px × 100pxの画像エリア（背景色で代用可）
+右上角に「Online」ステータスバッジ（position: absolute）
+画像下に名前とプロフィール文（通常フロー）
+
+カードを3つ横並びで表示（display: inline-block）
+ページ右下に「+」ボタンを固定表示（position: fixed）
+-->
+
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロフィールカード</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, sans-serif; /* システムフォント指定 */
+            margin: 0;
+        }
+        .card {
+            position: relative;     /* 基準となる要素 */
+            display: inline-block;  /* 横並びにしてサイズを指定する */
+            width: 200px;
+            height: 300px;
+            margin: 10px;
+            background-color: #f9f9f9;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+
+        .card-image{
+            display: block;   /* imageは横並びじゃないので */
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 100px;
+            background-color: #33eecc;
+        }
+
+        .badge {
+            position: absolute;  /* カード内の位置を基準に */
+            top: 10px;
+            right: 10px;
+            background-color: #10b981;
+            color: #fff;
+            padding: 5px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .plus-button {
+            position: fixed;  /* ブラウザの位置を基準 */
+            bottom: 20px;
+            right: 20px;
+            background-color: #3b82f6;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="main-content">
+        <h1>プロフィールカード</h1>
+        <div class="card">
+            <div class="card-image">実際は画像</div>
+            <div class="badge">Online</div>
+            <div>
+                <h2>ドラえもん</h2>
+                <p>こんにちは、未来からやってきた猫型ロボットです！</p>
+            </div>
+        </div>
+            
+        <div class="card">
+            <div class="card-image">実際は画像</div>
+            <div class="badge">Online</div>
+            <div>
+                <h2>ドラミちゃん</h2>
+                <p>こんにちは、未来からやってきた猫型ロボットで、ドラえもんの妹です！</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p><small>&copy; 2025 MikanTooKotatsu All rights reserved.</small></p>
+    </footer>
+
+    <button class="plus-button">＋</button>
+
+</body>
+
+</html>
