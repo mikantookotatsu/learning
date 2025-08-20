@@ -1,0 +1,97 @@
+<!--
+FlexBox 一次元のレイアウトを効率的に作成する
+
+Flexコンテナ  display:flex;  で有効
+Flexアイテム  Flexコンテナの子
+メイン軸  横方向（左→右）
+クロス軸  縦方向（上→下）
+
+最も高いアイテムに合わせて他のアイテムの高さが揃う
+flex: 1; /* 均等にサイズ分割 */
+
+アイテム間の余白を調整する場合はgapが推奨。
+
+-->
+
+<!--
+要件
+
+3つのボックスを作成する
+通常のdivとFlexboxコンテナの両方で表示し、違いを確認する
+各ボックスには以下の内容を含める：
+
+ボックス1：「商品A」
+ボックス2：「商品B」
+ボックス3：「商品C」
+
+ボックスには背景色とボーダーをつける
+コメントでFlexboxの動作を説明する
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexBox Test</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, sans-serif; /* システムフォント指定 */
+            margin: 0;
+            background-color: #f8fafc;
+        }
+
+        .fixed-contents {
+            display: flex; /* 子要素が自動的に横並びになる */
+        }
+
+        .box {
+            min-height: 60px;
+            color: #333;
+            font-weight: 700;
+            text-align: center;
+            background-color: lightblue;
+            border: 1px solid red;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>FlexBox Test</h1>
+        <hr>
+
+        <h2>flexを使用した場合</h2>
+        <!-- FlexBox の テスト -->
+        <div class="fixed-contents">
+            <!-- 今回はFlexBoxの動きが見たいだけなので中身は簡素 -->
+            <div class="box">商品A</div>
+            <div class="box">商品B</div>
+            <div class="box">商品C</div>
+        </div>
+        <hr>
+
+        <h2>flexを使用しない場合</h2>
+        <!-- div case -->
+        <div>
+            <!-- 今回はFlexBoxの動きが見たいだけなので中身は簡素 -->
+            <div class="box">商品A</div>
+            <div class="box">商品B</div>
+            <div class="box">商品C</div>
+        </div>
+        <hr>
+    </main>
+
+    <footer>
+        <p><small>&copy; 2025 MikanTooKotatsu All rights reserved.</small></p>
+    </footer>
+
+</body>
+
+</html>
