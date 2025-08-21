@@ -77,3 +77,6 @@ I am learning with Claude(&ChatGPT) as my teacher.
 9. day09
   - flexbox
   - `justify-content`、`align-items`、`flex-direction`
+
+10. day10
+  - `flex-grow、flex-shrink、flex-basis`

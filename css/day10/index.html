@@ -1,0 +1,114 @@
+<!--
+flex-basis  基準サイズの決定 widthより優先
+
+flex-grow  余ったスペースの分配
+
+flex-shrink スペースが足りない時の縮小比率
+
+/* よく使われるパターン */
+.item { flex: 1; }           /* flex: 1 1 0% - 均等分割 */
+.item { flex: none; }        /* flex: 0 0 auto - 内容サイズ維持 */
+.item { flex: auto; }        /* flex: 1 1 auto - 内容ベース＋拡張 */
+.item { flex: 0 0 200px; }   /* 固定サイズ（縮小も拡張もしない） */
+-->
+
+<!--
+課題
+以下の要件を満たすナビゲーションバーを作成してください：
+要件：
+コンテナ幅：800px、高さ：60px
+左側にロゴ（固定幅100px）
+中央にナビゲーションメニュー（残りスペースを占有）
+右側にユーザーアイコン（固定幅80px）
+各要素は垂直中央揃え
+
+使用する要素：
+ロゴ部分：「LOGO」テキスト
+メニュー部分：「ホーム | サービス | お問い合わせ」
+ユーザー部分：「ユーザー」テキスト
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ナビゲーションバー</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, sans-serif; /* システムフォント指定 */
+            margin: 0;
+            background-color: #f8fafc;
+        }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            top: 0px;
+            left: 0px;
+            width: 800px;
+            height: 60px;
+
+            .logo {
+                flex: 0 0 100px;
+                background-color: #ff8833;
+                text-align: center;
+                border: 1px solid #333;
+            }
+
+            .menu {
+                flex: 1;
+                display: flex;
+
+                .menu-item {
+                    flex: 1;
+                    background-color: #ddcccc;
+                    text-align: center;
+                    border: 1px solid #333;
+                    
+                    &:hover {
+                        background-color: rgba(0,0,0,0.1);
+                    }
+                }
+            }
+
+            .user {
+                flex: 0 0 80px;
+                background-color: #ff8833;
+                text-align: center;
+                border: 1px solid #333;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="navigation">
+                <div class="logo">LOGO</div>
+                <div class="menu">
+                    <div class="menu-item">ホーム</div>
+                    <div class="menu-item">サービス</div>
+                    <div class="menu-item">お問い合わせ</div>
+                </div>
+                <div class="user">ユーザー</div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1>ナビゲーションバーテスト</h1>
+    </main>
+
+    <footer>
+        <p><small>&copy; 2025 MikanTooKotatsu All rights reserved.</small></p>
+    </footer>
+
+</body>
+
+</html>
