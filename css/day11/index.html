@@ -1,0 +1,214 @@
+<!--
+要件
+固定ナビゲーション: ページ上部に常に表示
+3層構造: ロゴ(150px固定) + メニュー(可変) + アクション(120px固定)
+ドロップダウン: 「製品」メニューに3つのサブメニュー
+ホバー効果: 滑らかなアニメーション
+重ね順: ドロップダウンが他要素より前面に表示
+
+メニュー構成
+ロゴ: 「TechCorp」
+メニュー: ホーム、製品、サポート、企業情報
+サブメニュー（製品配下）: ソフトウェア、ハードウェア、コンサル
+アクション: 「無料相談」ボタン
+
+デザイン指針
+高さ: 80px
+背景: 半透明の白
+ホバー時: 要素が少し上に移動
+-->
+
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechCorp(Test)</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, sans-serif; /* システムフォント指定 */
+            margin: 0;
+            background-color: #f8fafc;
+        }
+
+        /* ナビゲーション内のCSSをまとめた */
+        .navigation {
+            display: flex;          /* FlexBoxを使う */
+            position: fixed;        /* 固定位置 */
+            align-items: center;    /* 垂直中央揃え */
+            top: 0;
+            left: 0;
+            width: 100%;            /* 幅いっぱい */
+            height: 80px;
+            margin: 0 auto;         /* 上下余白0 左右はauto(水平中央) */
+            padding: 0 20px;        /* 両端にpadding */
+            background-color: rgba(255, 255, 255, 0.95);  /* やや透過 */
+            z-index: 1000;          /* 固定で前面に表示 */
+
+            /* リストの黒丸を消す */
+            ul {
+                list-style: none;
+                padding-left: 0;
+            }
+
+            .logo {
+                flex: 0 0 150px;    /* 固定で150px */
+                font-size: 24px;
+                color: #333;
+                font-weight: 700;
+                text-decoration: none;
+            }
+
+            /* メニュー部分のCSS */
+            .menu {
+                display: flex;          /* さらに子要素にたいしてFlexBox */
+                flex: 1;                /* 自身は均等に */
+                justify-content: center;  /* 中央揃え これないと左になる */
+                gap: 0;
+
+                .menu-item {
+                    flex: 0 0 auto;     /* 元のサイズ基準 */
+                    position: relative;
+
+                    .menu-link {
+                        align-items: center;
+                        padding: 20px 24px;     /* 上下 左右余白 */
+                        color: #333;
+                        text-decoration: none;
+                        font-weight: 500;
+                        transition: all 0.3s ease;  /* アニメーション(hoverに対して) */
+                        border-radius: 8px;
+                        margin: 0 4px;
+
+                        &:hover {
+                            background-color: rgba(102, 126, 234, 0.1);
+                            color: #667eea;
+                            transform: translateY(-2px);
+                        }
+                    }
+
+                    .dropdown {
+                        position: absolute;     /* 親位置から固定 */
+                        top: 100%;              /* 親の下端に配置 */
+                        left: 50%;
+                        transform: translateX(-50%); /* 中央寄せ */
+                        background: white;
+                        border-radius: 12px;
+                        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+                        z-index: 999;           /* ナビより少し下 */
+                        opacity: 0;             /* 透明 */
+                        visibility: hidden;     /* 要素非表示 */
+                        transition: all 0.3s ease;  /* menu-itemでhover時にかかる */
+                        overflow: hidden;       /* 角丸を適切に表示 */
+                        min-width: 200px;
+
+                        .dropdown-item {
+                            display: block;     /* 縦並びのBlockBox */
+                            padding: 12px 20px;
+                            color: #333;
+                            text-decoration: none;
+                            border-bottom: 1px solid #f0f0f0;
+
+                            &:hover {
+                                background: rgba(102, 126, 234, 0.05);
+                                color: #667eea;
+                            }
+                        }
+                    }
+
+                    /* menu-item でhoverした時のdropdown */
+                    &:hover .dropdown {
+                        opacity: 1;
+                        visibility: visible;
+                        transform: translateX(-50%) translateY(8px);
+                    }
+                }
+            }
+
+            /* アクション部分のCSS */
+            .action {
+                flex: 0 0 120px;
+                text-align: center;
+                
+
+                .action-btn {
+                    padding: 10px 20px;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  /* グラデーション */
+                    color: white;
+                    border: none;
+                    border-radius: 25px;
+                    font-weight: 500;
+                    cursor: pointer;
+                    transition: box-shadow 0.3s ease, transform 0.3s ease; /* アニメーション */
+                    text-decoration: none;
+                    display: inline-flex;
+                    align-items: center;
+
+                    &:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+                    }
+                }
+            }
+        }
+        
+        .main-content {
+            margin-top: 100px;        /* ナビゲーションの高さ分を確保 */
+            text-align: center;
+        }
+
+        .test-box {
+            height: 2000px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="navigation">
+                <div class="logo">TechCorp</div>
+
+                <ul class="menu">
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">ホーム</a>
+                    </li>
+                    <li class="menu-item">
+                       <a href="#" class="menu-link">製品</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-item">ソフトウェア</a>
+                            <a href="#" class="dropdown-item">ハードウェア</a>
+                            <a href="#" class="dropdown-item">コンサル</a>
+                        </div>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">サポート</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">企業情報</a>
+                    </li>
+                </ul>
+                <div class="action">
+                    <a href="#" class="action-btn">無料相談</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="main-content">
+        <h1>TechCorp (二週目のテスト)</h1>
+        <div class="test-box">ナビゲーションが追従するかテスト用</div>
+    </main>
+
+    <footer>
+        <p><small>&copy; 2025 MikanTooKotatsu All rights reserved.</small></p>
+    </footer>
+
+</body>
+
+</html>
