@@ -83,3 +83,6 @@ I am learning with Claude(&ChatGPT) as my teacher.
 
 11. day11
   - day07~10 Summary
+
+12. day12
+  - CSS Grid 

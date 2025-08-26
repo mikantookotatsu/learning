@@ -1,0 +1,90 @@
+<!--
+CSS Grid 行と列を同時に制御する2次元のレイアウト 複雑なレイアウトを直感的に実現
+
+display: grid; /* この一行でグリッドレイアウトが有効になる */
+grid-template-columns: 200px 200px 200px; /* 列の定義：3つの200px幅の列 */
+grid-template-rows: 100px 100px; /* 行の定義：2つの100px高の行 */
+gap: 10px; /* アイテム間の隙間を10pxに設定 */
+
+gap: 10px 15px; /* 行10px, 列15px */
+-->
+
+<!--
+以下の要件を満たすHTMLとCSSを作成してください：
+要件：
+
+4列×3行のグリッドレイアウトを作成
+各セルのサイズは150px×80px
+セル間の隙間は15px
+12個のグリッドアイテムを配置（内容は「A」「B」「C」...「L」）
+グリッドアイテムの背景色は#FF5722、文字色は白
+グリッドコンテナの背景色は#E0E0E0
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid CSS Demo</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, sans-serif; /* システムフォント指定 */
+            margin: 0;
+            background-color: #f8fafc;
+        }
+
+        .grid-container {
+            display: grid;  /* Grid CSSの設定 */
+            width: fit-content; /* コンテンツサイズに調整 */
+            grid-template-columns: repeat(4, 150px); /* 4列 */
+            grid-template-rows: repeat(3, 80px); /* 3行 */
+            gap: 15px; /* セル間の間隔 */
+            background-color: #E0E0E0;
+            justify-content: center;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .grid-item {
+            background-color: #FF5722;
+            color: white;
+            font-weight: 700;
+            display: flex;              /* 子要素をflexで配置 */
+            justify-content: center;    /* 横方向に中央 */
+            align-items: center;        /* 縦方向に中央 */
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>CSS Grid Demo</h1>
+        <div class="grid-container">
+            <div class="grid-item">A</div> <!-- 左上から  -->
+            <div class="grid-item">B</div>
+            <div class="grid-item">C</div>
+            <div class="grid-item">D</div>
+            <div class="grid-item">E</div>
+            <div class="grid-item">F</div>
+            <div class="grid-item">G</div>
+            <div class="grid-item">H</div>
+            <div class="grid-item">I</div>
+            <div class="grid-item">J</div>
+            <div class="grid-item">K</div>
+            <div class="grid-item">L</div>
+        </div>
+    </main>
+
+    <footer>
+        <p><small>&copy; 2025 MikanTooKotatsu All rights reserved.</small></p>
+    </footer>
+
+</body>
+
+</html>
