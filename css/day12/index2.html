@@ -1,0 +1,318 @@
+<!--
+grid-area とは
+grid-area: row-start / column-start / row-end / column-end;
+row-start: 開始する行のグリッド線番号
+column-start: 開始する列のグリッド線番号
+row-end: 終了する行のグリッド線番号
+column-end: 終了する列のグリッド線番号
+
+spanでセル数を指定可能
+
+{ grid-column:2 / span 2; } // 2列目から2セル
+
+grid-template-areas エリア名をつける
+
+grid-template-areas:
+    "header header header"
+    "nav main sidebar"
+    "footer footer footer";
+
+    ↑ 各名前で定義できる
+.header {
+    grid-area: header; 
+}
+
+1fr … Gridレイアウト専用の単位 余白を均等にわける
+1vh … viewport height 1vh=画面の高さの1% 100vh で1画面分
+-->
+
+<!--
+grid-template-areasを使用して、ブログ記事一覧ページのレイアウトを作成
+以下のエリアを含める：
+
+header: サイトタイトルとナビゲーション
+featured: 注目記事エリア（2列幅）
+articles: 通常記事一覧（2×2のグリッド）
+sidebar: サイドバー（カテゴリーリストなど）
+footer: フッター
+
+
+デスクトップ表示では5列レイアウト、タブレット（768px以下）では3列レイアウトに変更
+各エリアはgrid-areaプロパティで配置
+grid-column: span 2またはgrid-row: span 2を最低1箇所で使用
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Blog</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, sans-serif; /* システムフォント指定 */
+            margin: 0;
+            background-color: #f8fafc;
+        }
+
+        /* リストの黒丸を消す */
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .grid-container {
+            display: grid;  /* Grid CSSの設定 */
+            min-height: 100vh; /* 画面1ページ分 */
+
+            grid-template-areas:
+                "header header header header header"
+                "featured featured articles articles sidebar"
+                "featured featured articles articles sidebar"
+                "footer footer footer footer footer";
+
+            grid-template-columns: 1fr 1fr 1fr 1fr 300px;
+            grid-template-rows: auto 1fr 1fr auto;
+            gap: 15px; /* セル間の間隔 */
+            
+            background-color: #E0E0E0;
+            justify-content: center;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        header {
+            grid-area: header;
+            background: linear-gradient(135deg, #FF5722 0%, #FF7043 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2rem;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        .featured {
+            grid-area: featured;
+            background-color: #2196F3;
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .featured h2 {
+            margin: 0 0 15px 0;
+            font-size: 1.5rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .featured-article {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #FFF;
+        }
+
+        .featured-article h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.1rem;
+        }
+
+        .featured-article p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* 記事一覧エリア */
+        .articles {
+            grid-area: articles;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2列のサブグリッド */
+            grid-template-rows: 1fr 1fr;    /* 2行のサブグリッド */
+            gap: 15px;
+        }
+        .article-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .article-card h3 {
+            margin: 0 0 10px 0;
+            color: #2d3748;
+            font-size: 1.1rem;
+        }
+
+        .article-card p {
+            margin: 0;
+            color: #718096;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .article-card .date {
+            font-size: 0.8rem;
+            color: #a0aec0;
+            margin-top: 10px;
+        }
+
+        /* サイドバー */
+        .sidebar {
+            grid-area: sidebar;
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .sidebar h3 {
+            margin: 0 0 15px 0;
+            font-size: 1.2rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 8px;
+        }
+
+        .sidebar ul {
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* フッター */
+        footer {
+            grid-area: footer;
+            background-color: #37474f;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer {
+            grid-area: footer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <!-- ヘッダーエリア -->
+        <header>
+            <h1>CSS Grid Blog</h1>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Blog</a>
+                <a href="#">Contact</a>
+            </nav>
+        </header>
+        <section class="featured">
+            <h2> 注目記事</h2>
+            <div class="featured-article">
+                <h3>CSS Grid完全ガイド</h3>
+                <p>モダンなWebレイアウトに必須のCSS Grid技術を徹底解説。基礎から応用まで実例付きで学べます。</p>
+            </div>
+            <div class="featured-article">
+                <h3>レスポンシブデザイン2025</h3>
+                <p>最新のレスポンシブデザイン手法とベストプラクティスをご紹介。モバイルファーストの重要性について。</p>
+            </div>
+        </section>
+        <!-- 記事一覧エリア（2×2グリッド） -->
+        <section class="articles">
+            <article class="article-card">
+                <h3>Flexboxの使い分け</h3>
+                <p>CSS GridとFlexboxの適切な使い分けについて、実例を交えて解説します。</p>
+                <div class="date">2025.08.20</div>
+            </article>
+            <article class="article-card">
+                <h3>パフォーマンス最適化</h3>
+                <p>Webサイトの読み込み速度を向上させるための具体的なテクニックをご紹介。</p>
+                <div class="date">2025.08.18</div>
+            </article>
+            <article class="article-card">
+                <h3>アクセシビリティ入門</h3>
+                <p>誰もが使いやすいWebサイトを作るための基本的なアクセシビリティ対応について。</p>
+                <div class="date">2025.08.15</div>
+            </article>
+            <article class="article-card">
+                <h3>JavaScriptフレームワーク比較</h3>
+                <p>React、Vue、Angular の特徴と選び方のポイントを詳しく比較検討します。</p>
+                <div class="date">2025.08.12</div>
+            </article>
+        </section>
+
+        <!-- サイドバー -->
+        <aside class="sidebar">
+            <h3>📂 カテゴリー</h3>
+            <ul>
+                <li><a href="#">🔧 技術情報</a></li>
+                <li><a href="#">📝 チュートリアル</a></li>
+                <li><a href="#">💭 日記</a></li>
+                <li><a href="#">🎨 デザイン</a></li>
+                <li><a href="#">⚡ パフォーマンス</a></li>
+            </ul>
+        </aside>
+        <footer>
+            <p><small>&copy; 2025 MikanTooKotatsu All rights reserved.</small></p>
+        </footer>
+    </div>
+
+</body>
+
+</html>
