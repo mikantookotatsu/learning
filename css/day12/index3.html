@@ -1,0 +1,253 @@
+<!-- 
+要件：
+ヘッダー（ロゴ + ナビゲーション3項目）
+メインコンテンツエリア（商品カード6個を3列で表示）
+各カードには画像、タイトル、価格、ボタンが含まれる
+レスポンシブ対応（768px以下で2列、480px以下で1列） 
+
+制約条件：
+ヘッダーはFlexbox、メインコンテンツはGridを使用
+カード内部の要素配置はFlexboxを使用
+Gap（余白）を適切に設定すること
+HTMLとCSSをセットで作成すること
+-->
+
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid VS FlexBox</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, sans-serif; /* システムフォント指定 */
+            margin: 0;
+            background-color: #f8fafc;
+        }
+
+        /* リストの黒丸を消す */
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;     /* ロゴとメニューを両端にする */
+            align-items: center;    /* 垂直中央揃え */
+            position: fixed;        /* 固定位置 */
+            top: 0;     /* 先頭位置固定 */
+            left: 0;
+            width: 100%;            /* 幅いっぱい */
+            height: 60px;
+            gap: 15px; /* セル間の間隔 */
+            padding: 0 20px;        /* 両端にpadding */
+            background: linear-gradient(135deg, #FF5722 0%, #FF7043 100%);
+            border-radius: 10px;
+            z-index: 100;  /* 最上位 */
+
+            .logo {
+                color: white;
+                background-color: #6366f1;
+                padding: 8px 16px;
+                text-align: center;
+                border-radius: 50%;
+                font-weight: bold;
+                font-size: 14px;
+            }
+
+            .menu {
+                display: flex;
+                gap: 20px;
+                
+                a {
+                    color: white;
+                    text-decoration: none;  /* 装飾をいったんクリア */
+                    font-weight: 700;
+                    padding: 8px 12px;
+                    border-radius: 4px;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background-color: rgba(255, 255, 255, 0.2);
+                        transform: translateY(-2px);
+                    }
+                }
+            }
+        }
+
+        .page {
+            display: grid;
+            grid-template-areas:
+                "title"
+                "main"
+                "footer";
+            grid-template-rows: auto 1fr auto;
+            min-height: 100vh; /* 画面1ページ分 */
+            margin-top: 60px;  /* ヘッダ分 */
+            padding: 20px;
+            gap: 20px;
+        }
+        h1 {
+            grid-area: title;
+            color: #1f2937;
+            text-align: center;
+            margin: 20px 0;
+        }
+        main {
+            grid-area: main;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto; /* 中央寄せ */
+        }
+        .card {
+            display: flex;
+            flex-direction: column;  /* 縦並び */
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),  0 1px 2px rgba(0, 0, 0, 0.06);
+            overflow: hidden;  /* 画像を枠内に収める */
+            transition: box-shadow 0.3s ease;
+
+            img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+
+            &:hover {
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1);
+                transform: translateY(-4px);
+            }
+
+            .item {
+                display: flex;
+                flex-direction: column;
+                padding: 16px;
+                flex: 1;
+                justify-content: space-between;
+
+                h2 {
+                    margin: 0 0 8px 0;
+                    color: #1f2937;
+                    font-size: 1.1rem;
+                }
+
+                .price {
+                    color: #f59e0b;
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    margin: 8px 0;
+                }
+
+                button {
+                    flex: 1;
+                    padding: 12px;
+                    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background: linear-gradient(135deg, #2563eb, #1e40af);
+                        transform: translateY(-1px);
+                    }
+                }
+            }
+        }
+
+        footer {
+            grid-area: footer;
+        }
+        @media (max-width: 768px) {
+            main {
+                grid-template-columns: repeat(2, 1fr); /* 明示的に2列 */
+            }
+        }
+        @media (max-width: 480px) {
+            main {
+                grid-template-columns: 1fr; /* 1列表示 */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+            <div class="logo">LOGO</div>
+            <ul class="menu">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">MAIN</a></li>
+            </ul>
+    </header>
+    <div class="page">
+        <h1>CSS Grid と FlexBox 使い分け</h1>
+        <main>
+            <div class="card">
+                <img src="imgs/item1.jpg" alt="商品1の写真" loading="lazy">
+                <div class="item">
+                    <h2>商品1</h2>
+                    <p class="price">3000円</p>
+                    <button>購入</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="imgs/item2.jpg" alt="商品2の写真" loading="lazy">
+                <div class="item">
+                    <h2>商品2</h2>
+                    <p class="price">3000円</p>
+                    <button>購入</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="imgs/item3.jpg" alt="商品3の写真" loading="lazy">
+                <div class="item">
+                    <h2>商品3</h2>
+                    <p class="price">3000円</p>
+                    <button>購入</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="imgs/item4.jpg" alt="商品4の写真" loading="lazy">
+                <div class="item">
+                    <h2>商品4</h2>
+                    <p class="price">3000円</p>
+                    <button>購入</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="imgs/item5.jpg" alt="商品5の写真" loading="lazy">
+                <div class="item">
+                    <h2>商品5</h2>
+                    <p class="price">3000円</p>
+                    <button>購入</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="imgs/item6.jpg" alt="商品6の写真" loading="lazy">
+                <div class="item">
+                    <h2>商品6</h2>
+                    <p class="price">3000円</p>
+                    <button>購入</button>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p><small>&copy; 2025 MikanTooKotatsu All rights reserved.</small></p>
+        </footer>
+    </div>
+</body>
+
+</html>
