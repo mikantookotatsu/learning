@@ -87,3 +87,6 @@ I am learning with Claude(&ChatGPT) as my teacher.
 12. day12
   - CSS Grid 
   - `grid-template-areas`
+
+13. day13
+  - Responsive Design
