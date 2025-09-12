@@ -90,3 +90,7 @@ I am learning with Claude(&ChatGPT) as my teacher.
 
 13. day13
   - Responsive Design
+
+14. day14
+  - CSS Custom Properties
+  

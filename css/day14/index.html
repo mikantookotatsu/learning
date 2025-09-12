@@ -1,0 +1,145 @@
+<!--
+CSS変数
+
+定義
+--variable-name: value; の形式で定義
+
+使用時
+var(--variable-name); もしくは
+var(--variable-name, fallback-value);  fallback-valueは変数が未定義の場合に使われる値
+
+計算する場合
+Calc(var(--variable-name) / 2); みたいにできる
+
+スコープ
+:root {
+  /* この中で定義したものはグローバル */
+}
+
+.card {
+  --variable-name: value;  /* このクラスだけ有効なローカル */
+}
+
+-->
+
+<!--
+以下の要件を満たすシンプルなWebページを作成してください：
+要件：
+CSS変数を使った3色のカラーテーマシステムを構築
+メインカラー、アクセントカラー、背景カラーを変数で定義
+:rootセレクタを使用してグローバルに定義
+
+以下の要素を含むページを作成：
+ヘッダー（メインカラーを背景に使用）
+2つのカード要素（背景カラーを使用）
+各カードに1つずつボタン（アクセントカラーを使用）
+
+
+統一されたスペーシングシステム：
+--spacing-unitを定義し、padding/marginで活用
+calc()関数を使って倍数や分数で指定
+
+HTML構造は50行以内、CSS部分は100行以内で実装
+-->
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 変数テスト</title>
+    <style>
+        :root {
+            --color-primary: #2563eb;
+            --color-secondary: #10b981;
+            --card-bg-color: #f8fafc;
+
+            --text-color: #1e293b;
+            --border-color: #1e293b;
+
+            /* スペースの基準 */
+            --spacing-unit: 1rem;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, sans-serif; /* システムフォント指定 */
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--color-primary);
+            color: white;
+            padding: var(--spacing-unit);
+        }
+
+        main {
+            padding: calc(var(--spacing-unit) * 2)
+        }
+
+        .grid-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: calc(var(--spacing-unit) * 1.5);
+            max-width: 800px;
+            margin:0 auto;
+        }
+
+        .card {
+            background: var(--card-bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: calc(var(--spacing-unit) * 0.5);
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .button {
+            background-color: var(--color-secondary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: calc(var(--spacing-unit) / 2) var(--spacing-unit); /* calc()で分数指定 */
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+
+            &:hover {
+                opacity: 0.9;  /* ホバー効果 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CSS変数のテスト</h1>
+    </header>
+
+    <main>
+        <div class="grid-content">
+            <div class="card">
+                <h2>カード1</h2>
+                <p>CSS変数は共通の色とかをまとめるのに使えそうです</p>
+                <button class="button">使う</button>
+            </div>
+            <div class="card">
+                <h2>カード2</h2>
+                <p>スペースを計算で出すのはなるほどですね</p>
+                <button class="button">使う</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p><small>&copy; 2025 MikanTooKotatsu All rights reserved.</small></p>
+    </footer>
+</body>
+</html>

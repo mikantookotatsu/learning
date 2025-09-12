@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>レスポンシブなWebページ</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, sans-serif; /* システムフォント指定 */
+            background-color: #f8fafc;
+            line-height: 1.6;
+        }
+
+        /* モバイルファーストでまず設定 */
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .nav {
+            background: #34495e;
+            padding: 0; 
+
+            /* モバイルでは縦並びのナビゲーション */
+            & ul {
+                list-style: none;
+                display: flex;
+                flex-direction: column; 
+            }
+
+            & a {
+                text-decoration: none;
+                color: white;
+                padding: 1rem;
+                display: block;
+                border-bottom: 1px solid #2c3e50;
+                transition: background-color 0.2s ease; 
+
+                &:hover {
+                    background:#2c3e50;
+                }
+            }
+        }
+
+        .main-content {
+            padding: 1rem;
+        }
+
+        /* モバイル：カードは1列で表示 */
+        .cards-container {
+            display: block;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* タブレット（768px以上） */
+        @media (min-width: 768px) {
+            .header {
+                text-align: left;
+                padding: 1.5rem 2rem;
+            }
+
+            .nav {
+                /* タブレットでは横並びのナビゲーション */
+                & ul {
+                    flex-direction: row; 
+                }
+
+                & a {
+                    border-bottom: none;
+                    border-right: 1px solid #2c3e50;
+
+                    &:last-child {
+                        border-right: none;
+                    }
+                }
+            }
+
+            .main-content {
+                padding: 2rem;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            /* タブレットではカードを2列に */
+            .cards-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+
+            .card {
+                margin-bottom: 0; /* Gridレイアウトではmarginは不要 gapがあるんでね */
+            }
+        }
+
+        /* デスクトップ向け（1024px以上） */
+        @media (min-width: 1024px) {
+            .header {
+                padding: 2rem;
+            }
+
+            .nav {
+                /* デスクトップでは横並び＋中央のナビゲーション */
+                & ul {
+                    justify-content: center;
+                }
+
+                & a {
+                    padding: 1rem 2rem;
+                }
+            }
+
+            /* デスクトップではカードを3列に */
+            .cards-container {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>レスポンシブなWebページ</h1>
+    </header>
+
+    <nav class="nav">
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">BLOG</a></li>
+            <li><a href="#">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <h2>カードリスト</h2>
+        <div class="cards-container">
+            <div class="card">
+                <h3>スライム</h3>
+                <p>HP:10 pt</p>
+                <p>Attack:2</p>
+                <p>ヌルヌルでかわいいやつ!</p>
+            </div>
+            <div class="card">
+                <h3>ゴブリン</h3>
+                <p>HP:15 pt</p>
+                <p>Attack:4</p>
+                <p>ずるがしこいやつ!</p>
+            </div>
+            <div class="card">
+                <h3>ドラゴン</h3>
+                <p>HP:1200 pt</p>
+                <p>Attack:100</p>
+                <p>伝説のドラゴン!</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p><small>&copy; 2025 MikanTooKotatsu All rights reserved.</small></p>
+    </footer>
+</body>
+</html>
