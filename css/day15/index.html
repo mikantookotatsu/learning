@@ -1,0 +1,126 @@
+<!-- 
+演習課題：ナビゲーションメニューの作成
+以下の要件を満たすナビゲーションメニューを作成してください。
+
+要件
+HTML構造: <nav>タグ内に<ul>と<li>でメニュー項目を3つ以上作成
+疑似クラスの使用:
+
+通常時、:hover時、:active時でそれぞれ異なる見た目にする
+:first-childの項目だけ色を変える
+
+疑似要素の使用:
+::afterを使って、ホバー時に下線アニメーションを実装する
+ヒント: width: 0からwidth: 100%に変化させる
+
+アクセシビリティ:
+:focus状態のスタイルも忘れずに設定する
+
+期待される動作
+メニュー項目にマウスを乗せると、下から線がスライドして表示される
+最初のメニュー項目だけ異なる色で表示される
+キーボードのTabキーでフォーカス移動したときも視認できる
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>インタラクティブメニュー</title>
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+
+            --link-color-top: #dc2626;
+            --link-color: #3b82f6;
+            --link-color-hover: #2563eb;
+            --link-color-active: #8b5cf6;
+
+            /* スペースの基準 */
+            --spacing-unit: 1rem;
+        }
+
+        *,*::before,*::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, sans-serif;
+            background: var(--bg-color);
+            line-height: 1.6;
+            padding: calc(var(--spacing-unit) * 2);
+        }
+
+        nav {
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+            & ul {
+                list-style: none;
+                display: flex;
+                gap: 2rem;
+
+                & li {
+                    position: relative;
+
+                    & a {
+                        display: inline-block;
+                        padding:0.5rem 0;
+                        color: var(--link-color);
+                        text-decoration: none;
+                        font-weight: 500;
+                        transition: color 0.3s ease;
+
+                        &:active {
+                            color: var(--link-color-active);
+                        }
+                        &:hover {
+                            color: var(--link-color-hover);
+                        }
+                        &:focus {
+                            outline: 2px solid var(--link-color);
+                            outline-offset: 4px;
+                            border-radius: 4px;
+                        }
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 0; /* 初期状態 */
+                            height: 2px;
+                            background-color: currentColor;
+                            transition: width 0.3s ease;
+                        }
+                        &:hover::after {
+                            width: 100%;
+                        }
+                    }
+                    &:first-child a {
+                        color: var(--link-color-top);
+                    }
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">MenuA</a></li>
+            <li><a href="#">MenuB</a></li>
+            <li><a href="#">MenuC</a></li>
+        </ul>
+    </nav>
+
+</body>
+
+</html>
