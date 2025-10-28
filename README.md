@@ -96,3 +96,9 @@ I am learning with Claude(&ChatGPT) as my teacher.
 
 15. day15
   - user interaction
+
+## typescript
+1. variables
+2. function
+3. Array
+
